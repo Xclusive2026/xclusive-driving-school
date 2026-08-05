@@ -1,0 +1,128 @@
+{
+  "theme": "dark",
+  "app_type": "marketing_site",
+  "typography": {
+    "headings": {
+      "family": "'Anton', sans-serif",
+      "import_url": "@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');",
+      "usage": "Use for massive impact, hero titles, manifesto numbers, and section headers.",
+      "styles": "uppercase, tracking-tight, leading-none"
+    },
+    "subheadings": {
+      "family": "'Outfit', sans-serif",
+      "import_url": "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');",
+      "usage": "Secondary headings, package names, pricing numbers.",
+      "styles": "font-light or font-bold (radical contrast), tracking-tight"
+    },
+    "body": {
+      "family": "'IBM Plex Sans', sans-serif",
+      "import_url": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap');",
+      "usage": "Testimonial text, standard paragraphs, form inputs.",
+      "styles": "leading-relaxed text-[#A3A3A3]"
+    },
+    "labels": {
+      "family": "'IBM Plex Mono', monospace",
+      "import_url": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');",
+      "usage": "Small uppercase overlines, button text, form labels, small navigational links.",
+      "styles": "uppercase tracking-[0.2em] text-xs"
+    }
+  },
+  "colors": {
+    "primary_bg": "#0A0A0A",
+    "secondary_bg": "#141414",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A3A3A3",
+    "accent_primary": "#FF2A2A",
+    "accent_hover": "#CC1F1F",
+    "border_subtle": "rgba(255, 255, 255, 0.1)",
+    "rules": [
+      "NO generic full-screen gradients. Use solid dark tones.",
+      "Use #FF2A2A purely as a functional or high-impact accent (e.g., buttons, numbers, marquee background).",
+      "Never use pure black #000000, stick to #0A0A0A for rich depth."
+    ]
+  },
+  "layouts": {
+    "grid_system": "Swiss Brutalist (Grid Mode A: Tetris Grid). Asymmetrical layout, generous whitespace.",
+    "spacing": "Scale up standard spacing (p-12, p-16, p-24, p-32). Do not cramp sections.",
+    "border_rules": "Use visible 1px borders (border-white/10) for a technical 'grid' look in pricing or features.",
+    "header": "Crystal Glassmorphism (backdrop-blur-xl bg-black/60) with 1px bottom border. DO NOT use completely transparent header."
+  },
+  "motion": {
+    "scrolling": "Lenis for smooth momentum scrolling (Mandatory).",
+    "hero_reveal": "Kinetic typography mask-image line-by-line reveal using framer-motion.",
+    "scroll_animations": "Staggered fade-up and scale-in as user scrolls.",
+    "hover_effects": "High-contrast flip. Example: black button with white border becomes red background, white text, no border."
+  },
+  "sections_blueprint": [
+    {
+      "name": "Hero Section",
+      "features": "Massive 'XCLUSIVE' in Anton font (text-8xl to text-[12vw]). Parallax background of steering wheel image (masked or overlaid heavily with bg-black/60). Floating 'est. 2026' or mono labels.",
+      "image_url": "https://images.unsplash.com/photo-1625690180114-5530b1304127?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjBjYXIlMjBpbnRlcmlvcnxlbnwwfHx8fDE3ODU5NjQzODB8MA&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "name": "Editorial Marquee",
+      "features": "react-fast-marquee with words: 'MANUAL • AUTOMATIC • INTENSIVE • PASS PLUS'. High contrast: Red background (#FF2A2A) with black text, Anton font, large text."
+    },
+    {
+      "name": "Manifesto / Why Choose Us",
+      "features": "Numbered chapters (01, 02, 03) in massive stroke/outline text. Asymmetric grid. Monospace small labels outlining stats (e.g., '98% Pass Rate')."
+    },
+    {
+      "name": "Course Packages (Pricing)",
+      "features": "Grid Borders (The 'Technical' Look). Instead of standard cards, use a border-collapse grid style with sharp edges. No soft shadows.",
+      "image_url": "https://images.unsplash.com/photo-1616549972169-0a0d961c9905?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwzfHxibGFjayUyMGNhciUyMGRyaXZpbmclMjByb2FkfGVufDB8fHx8MTc4NTk2NDM4MHww&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "name": "Reviews Gallery",
+      "features": "Image-focused. A slider or masonry layout using Framer Motion. High-end lifestyle imagery.",
+      "image_url": "https://images.unsplash.com/photo-1634055739897-b6a98a80114a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHxzbWlsaW5nJTIwZHJpdmVyJTIwY2FyfGVufDB8fHx8MTc4NTk2NDM4MHww&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "name": "Contact / Enquiry",
+      "features": "Brutalist form. Input fields should be transparent with only a bottom border (1px white/20). Massive red submit button."
+    }
+  ],
+  "components": [
+    {
+      "name": "Button",
+      "instructions": "Sharp edges, rounded-none. Hover: invert colors or transition to red.",
+      "path": "src/components/ui/button.js"
+    },
+    {
+      "name": "Form Input",
+      "instructions": "Override Tailwind for a bottom-border-only look. No focus rings, instead brighten bottom border to solid white.",
+      "path": "src/components/ui/input.js"
+    }
+  ],
+  "visual_enhancers": {
+    "noise_overlay": "Add a fixed pointer-events-none 5-10% opacity SVG noise layer to the entire site.",
+    "icons": "Use @phosphor-icons/react for high-end duotone/bold styling."
+  },
+  "accessibility": {
+    "contrast": "Ensure all text against black/red meets APCA standards. Use text-white over black.",
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case (e.g., data-testid='submit-contact-button')."
+  },
+  "instructions_to_main_agent": [
+    "Build standard React/Vite/Tailwind stack using .js/.jsx.",
+    "Install lenis (@studio-freight/lenis) for smooth scroll.",
+    "Install framer-motion.",
+    "Install react-fast-marquee.",
+    "Install @phosphor-icons/react.",
+    "Implement a custom font configuration using standard Google Fonts imports in index.css.",
+    "Strictly follow the color palette. Do not invent new shades of gray or red.",
+    "Do not use generic border-radius (keep it sharp rounded-none for brutalist feel unless explicitly needed)."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. Always add transitions for specific interactive elements excluding transforms.",
+    "You MUST NOT center align the app container. Do not add .App { text-align: center; } in the css file.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing."
+  ]
+}
