@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, EnvelopeSimple, WhatsappLogo, FacebookLogo, MapPin } from "@phosphor-icons/react";
+import { Phone, EnvelopeSimple, WhatsappLogo, FacebookLogo, InstagramLogo, TiktokLogo, GoogleLogo, MapPin } from "@phosphor-icons/react";
 import { BRAND, waLink } from "../../data";
 
 const NAV = [
@@ -21,11 +21,20 @@ export const Footer = () => (
           Friendly driving lessons across Sheffield &amp; Rotherham. Automatic &amp; manual, female and bilingual instructors available.
         </p>
         <div className="flex items-center gap-3 mt-6">
-          <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="footer-whatsapp" className="w-11 h-11 rounded-full bg-[#25D366] grid place-items-center hover:brightness-95 transition">
+          <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="footer-whatsapp" className="w-11 h-11 rounded-full bg-[#25D366] grid place-items-center hover:brightness-95 transition" aria-label="WhatsApp">
             <WhatsappLogo size={22} weight="fill" />
           </a>
-          <a href={BRAND.facebookReviews} target="_blank" rel="noopener noreferrer" data-testid="footer-facebook" className="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-white/20 transition">
+          <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" data-testid="footer-instagram" className="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-white/20 transition" aria-label="Instagram">
+            <InstagramLogo size={22} weight="fill" />
+          </a>
+          <a href={BRAND.tiktok} target="_blank" rel="noopener noreferrer" data-testid="footer-tiktok" className="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-white/20 transition" aria-label="TikTok">
+            <TiktokLogo size={22} weight="fill" />
+          </a>
+          <a href={BRAND.facebookReviews} target="_blank" rel="noopener noreferrer" data-testid="footer-facebook" className="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-white/20 transition" aria-label="Facebook">
             <FacebookLogo size={22} weight="fill" />
+          </a>
+          <a href={BRAND.google} target="_blank" rel="noopener noreferrer" data-testid="footer-google" className="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-white/20 transition" aria-label="Google">
+            <GoogleLogo size={22} weight="fill" />
           </a>
         </div>
       </div>

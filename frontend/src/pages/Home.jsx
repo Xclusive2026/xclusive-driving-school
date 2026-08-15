@@ -184,19 +184,19 @@ export default function Home() {
             <div className="bg-[#17171A] rounded-[32px] p-10 md:p-16 text-center text-white relative overflow-hidden">
               <div className="flex justify-center gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={26} weight="fill" className="text-[#E4141B]" />
+                  <Star key={i} size={26} weight="fill" className="text-[#FBBC05]" />
                 ))}
               </div>
               <h2 className="font-head font-extrabold text-3xl md:text-4xl">Don't just take our word for it</h2>
               <p className="font-body text-lg text-white/70 max-w-xl mx-auto mt-4">
-                We're proud of every learner who passes with us. See our Pass Wall and read genuine reviews from our students.
+                We're proud of every learner who passes with us. Rated <span className="text-white font-semibold">5.0 on Google</span> — see our Pass Wall and read genuine reviews.
               </p>
               <div className="flex flex-wrap justify-center gap-3 mt-8">
                 <Link to="/reviews" data-testid="home-reviews-page" className="inline-flex items-center gap-2 rounded-full bg-white text-[#17171A] px-7 py-4 font-head font-semibold hover:bg-white/90 transition">
                   See our Pass Wall
                 </Link>
-                <a href={BRAND.facebookReviews} target="_blank" rel="noopener noreferrer" data-testid="home-fb-reviews" className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white px-7 py-4 font-head font-semibold hover:text-[#E4141B] transition">
-                  Facebook Reviews
+                <a href={BRAND.google} target="_blank" rel="noopener noreferrer" data-testid="home-google-reviews" className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white px-7 py-4 font-head font-semibold hover:text-[#E4141B] transition">
+                  Google Reviews
                 </a>
               </div>
             </div>

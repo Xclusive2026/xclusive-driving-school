@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FacebookLogo, Star, Quotes, X, CaretLeft, CaretRight, SealCheck } from "@phosphor-icons/react";
+import { FacebookLogo, GoogleLogo, InstagramLogo, TiktokLogo, Star, Quotes, X, CaretLeft, CaretRight, SealCheck } from "@phosphor-icons/react";
 import { BRAND } from "../data";
 import { Reveal } from "../components/site/Reveal";
 import { BookButton } from "../components/site/Buttons";
@@ -42,19 +42,36 @@ export default function Reviews() {
   return (
     <div className="pt-[74px]">
       {/* Header */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="max-w-[900px] mx-auto px-4 md:px-8 text-center">
           <Reveal>
-            <div className="flex justify-center gap-1 mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={30} weight="fill" className="text-[#E4141B]" />
-              ))}
-            </div>
             <span className="font-head font-semibold text-[#E4141B] text-sm uppercase tracking-wide">Reviews</span>
             <h1 className="font-head font-extrabold text-4xl md:text-5xl mt-3">Don't just take our word for it</h1>
             <p className="font-body text-lg text-[#4B4B52] leading-relaxed mt-5">
               We're proud of the relationships we build with our learners — and even prouder of every test pass. Here's some of the happy faces and kind words from people we've helped across Sheffield &amp; Rotherham.
             </p>
+          </Reveal>
+
+          {/* Google 5-star badge */}
+          <Reveal delay={0.08}>
+            <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 bg-white border border-[#ECE6E2] rounded-3xl px-8 py-6 mt-9 soft-shadow">
+              <div className="flex items-center gap-3">
+                <GoogleLogo size={34} weight="fill" className="text-[#4285F4]" />
+                <span className="font-head font-bold text-lg">Rated on Google</span>
+              </div>
+              <span className="hidden sm:block w-px h-10 bg-[#ECE6E2]" />
+              <div className="flex flex-col items-center sm:items-start">
+                <div className="flex items-center gap-2">
+                  <span className="font-head font-extrabold text-3xl text-[#17171A]">5.0</span>
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={20} weight="fill" className="text-[#FBBC05]" />)}
+                  </div>
+                </div>
+                <a href={BRAND.google} target="_blank" rel="noopener noreferrer" data-testid="google-rating-link" className="font-head font-semibold text-sm text-[#E4141B] hover:underline mt-1">
+                  Read our Google reviews →
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -65,20 +82,23 @@ export default function Reviews() {
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div className="h-full bg-white border border-[#ECE6E2] rounded-3xl p-7 soft-shadow flex flex-col">
-                <Quotes size={38} weight="fill" className="text-[#E4141B]/25" />
-                <div className="flex gap-0.5 mt-3">
-                  {[...Array(5)].map((_, s) => (
-                    <Star key={s} size={16} weight="fill" className="text-[#E4141B]" />
-                  ))}
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} size={18} weight="fill" className="text-[#FBBC05]" />
+                    ))}
+                  </div>
+                  <GoogleLogo size={24} weight="fill" className="text-[#4285F4]" />
                 </div>
-                <p className="font-body text-[#17171A] leading-relaxed mt-4 flex-1">{t.text}</p>
+                <Quotes size={34} weight="fill" className="text-[#E4141B]/20 mt-4" />
+                <p className="font-body text-[#17171A] leading-relaxed mt-2 flex-1">{t.text}</p>
                 <div className="mt-6 pt-5 border-t border-[#F2EEEA] flex items-center gap-3">
                   <span className="w-10 h-10 rounded-full bg-[#E4141B]/10 grid place-items-center">
                     <SealCheck size={20} weight="fill" className="text-[#E4141B]" />
                   </span>
                   <span>
                     <span className="block font-head font-bold text-sm">Verified learner</span>
-                    <span className="block font-body text-xs text-[#4B4B52]">{t.tag}</span>
+                    <span className="block font-body text-xs text-[#4B4B52]">{t.tag} · Posted on Google</span>
                   </span>
                 </div>
               </div>
@@ -132,25 +152,30 @@ export default function Reviews() {
         </div>
       </section>
 
-      {/* Facebook + CTA */}
+      {/* Social + CTA */}
       <section className="pb-24">
         <div className="max-w-[1240px] mx-auto px-4 md:px-8">
           <Reveal>
             <div className="bg-[#17171A] rounded-[32px] p-10 md:p-14 text-center text-white">
-              <h2 className="font-head font-extrabold text-2xl md:text-3xl">More reviews on Facebook</h2>
+              <h2 className="font-head font-extrabold text-2xl md:text-3xl">Follow us &amp; read more reviews</h2>
               <p className="font-body text-lg text-white/70 mt-3 max-w-lg mx-auto">
-                Read genuine feedback from our learners over on our Facebook page — then start your own journey with us.
+                See more happy learners and genuine reviews across our social channels — then start your own journey with us.
               </p>
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                <a
-                  href={BRAND.facebookReviews}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="reviews-fb-btn"
-                  className="inline-flex items-center gap-3 rounded-full bg-[#1877F2] text-white px-7 py-4 font-head font-semibold hover:brightness-95 transition"
-                >
-                  <FacebookLogo size={22} weight="fill" /> Read Our Facebook Reviews
+                <a href={BRAND.google} target="_blank" rel="noopener noreferrer" data-testid="reviews-google-btn" className="inline-flex items-center gap-2.5 rounded-full bg-white text-[#17171A] px-6 py-3.5 font-head font-semibold hover:bg-white/90 transition">
+                  <GoogleLogo size={20} weight="fill" className="text-[#4285F4]" /> Google Reviews
                 </a>
+                <a href={BRAND.facebookReviews} target="_blank" rel="noopener noreferrer" data-testid="reviews-fb-btn" className="inline-flex items-center gap-2.5 rounded-full bg-[#1877F2] text-white px-6 py-3.5 font-head font-semibold hover:brightness-95 transition">
+                  <FacebookLogo size={20} weight="fill" /> Facebook
+                </a>
+                <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" data-testid="reviews-instagram-btn" className="inline-flex items-center gap-2.5 rounded-full text-white px-6 py-3.5 font-head font-semibold transition" style={{ background: "linear-gradient(45deg,#F58529,#DD2A7B,#8134AF)" }}>
+                  <InstagramLogo size={20} weight="fill" /> Instagram
+                </a>
+                <a href={BRAND.tiktok} target="_blank" rel="noopener noreferrer" data-testid="reviews-tiktok-btn" className="inline-flex items-center gap-2.5 rounded-full bg-white/10 border border-white/20 text-white px-6 py-3.5 font-head font-semibold hover:bg-white/20 transition">
+                  <TiktokLogo size={20} weight="fill" /> TikTok
+                </a>
+              </div>
+              <div className="mt-8">
                 <BookButton className="px-7 py-4 text-base" testid="reviews-book" />
               </div>
             </div>

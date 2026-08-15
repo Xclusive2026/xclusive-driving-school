@@ -12,6 +12,9 @@ export const BRAND = {
   emailHref: "mailto:ishie677@gmail.com",
   areas: "Sheffield & Rotherham",
   facebookReviews: "https://www.facebook.com/profile.php?id=100091924760890&sk=reviews",
+  instagram: "https://www.instagram.com/xculsivedriving",
+  tiktok: "https://www.tiktok.com/@ali7864280",
+  google: "https://share.google/zNhW4NmZofe73Fp9Q",
 };
 
 export const waLink = (text = "Hi Xclusive Driving School, I'd like to book a driving lesson.") =>
