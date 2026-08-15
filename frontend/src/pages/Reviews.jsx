@@ -5,7 +5,6 @@ import { FacebookLogo, GoogleLogo, InstagramLogo, TiktokLogo, Star, Quotes, X, C
 import { BRAND } from "../data";
 import { Reveal } from "../components/site/Reveal";
 import { BookButton } from "../components/site/Buttons";
-import { ReviewForm } from "../components/site/ReviewForm";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -32,17 +31,15 @@ const TESTIMONIALS = [
 export default function Reviews() {
   const [lightbox, setLightbox] = useState(null);
   const [google, setGoogle] = useState(null);
-  const [userReviews, setUserReviews] = useState([]);
 
   useEffect(() => {
     axios.get(`${API}/google-reviews`).then((r) => setGoogle(r.data)).catch(() => {});
-    axios.get(`${API}/reviews`).then((r) => setUserReviews(r.data || [])).catch(() => {});
   }, []);
 
   const live = google && google.configured && Array.isArray(google.reviews) && google.reviews.length > 0;
   const ratingText = live && google.rating ? Number(google.rating).toFixed(1) : "5.0";
   const ratingCount = live && google.user_rating_count ? google.user_rating_count : null;
-  const baseCards = live
+  const cards = live
     ? google.reviews.map((r) => ({
         text: r.text,
         name: r.author || "Google user",
@@ -57,14 +54,6 @@ export default function Reviews() {
         rating: 5,
         uri: BRAND.google,
       }));
-  const submittedCards = userReviews.map((r) => ({
-    text: r.text,
-    name: r.name,
-    tag: "Learner review",
-    rating: r.rating || 5,
-    uri: null,
-  }));
-  const cards = [...submittedCards, ...baseCards];
 
   useEffect(() => {
     const onKey = (e) => {
@@ -142,24 +131,6 @@ export default function Reviews() {
               </div>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* Leave a review */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-[820px] mx-auto px-4 md:px-8">
-          <Reveal>
-            <div className="text-center mb-8">
-              <span className="font-head font-semibold text-[#E4141B] text-sm uppercase tracking-wide">Share your experience</span>
-              <h2 className="font-head font-extrabold text-3xl md:text-4xl mt-2">Leave us a review</h2>
-              <p className="font-body text-[#4B4B52] mt-3">
-                Learned with us? We'd love to hear how it went — your review helps other learners feel confident about getting started.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <ReviewForm onSuccess={(r) => setUserReviews((prev) => [r, ...prev])} />
-          </Reveal>
         </div>
       </section>
 
