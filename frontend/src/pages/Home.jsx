@@ -27,7 +27,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="font-head font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mt-6">
-                Learn to Drive with <span className="text-[#E4141B]">Confidence</span>
+                <span className="text-[#E4141B] text-[1.5em] leading-none align-[-0.08em] mr-0.5">L</span>earn to Drive with <span className="text-[#E4141B]">Confidence</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>

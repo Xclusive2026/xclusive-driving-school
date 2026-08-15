@@ -72,6 +72,21 @@ class Enquiry(BaseModel):
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
+class ReviewCreate(BaseModel):
+    name: str
+    rating: int = 5
+    text: str
+
+
+class Review(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    rating: int = 5
+    text: str
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
 # ---- Routes ----
 @api_router.get("/")
 async def root():
@@ -108,6 +123,21 @@ async def create_enquiry(input: EnquiryCreate):
 async def list_enquiries():
     docs = await db.enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
     return [Enquiry(**d) for d in docs]
+
+
+@api_router.post("/reviews", response_model=Review)
+async def create_review(input: ReviewCreate):
+    rating = max(1, min(5, int(input.rating)))
+    review = Review(name=input.name.strip(), rating=rating, text=input.text.strip())
+    await db.reviews.insert_one(review.model_dump())
+    logger.info(f"New review from {review.name} ({rating}★)")
+    return review
+
+
+@api_router.get("/reviews", response_model=List[Review])
+async def list_reviews():
+    docs = await db.reviews.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    return [Review(**d) for d in docs]
 
 
 # ---- Google Reviews (Places API New) with in-memory cache ----
