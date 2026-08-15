@@ -1,5 +1,5 @@
-/* App-level styles intentionally minimal; theme lives in index.css */
 .App {
     position: relative;
-    background: #0A0A0A;
+    background: #ffffff;
+    min-height: 100vh;
 }

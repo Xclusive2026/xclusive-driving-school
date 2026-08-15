@@ -49,20 +49,24 @@ class StatusCheckCreate(BaseModel):
 
 class EnquiryCreate(BaseModel):
     name: str
-    email: EmailStr
     phone: str
-    package: Optional[str] = None
-    message: str
+    email: Optional[str] = None
+    lesson_type: Optional[str] = None
+    preferred_instructor: Optional[str] = None
+    contact_method: Optional[str] = None
+    message: Optional[str] = None
 
 
 class Enquiry(BaseModel):
     model_config = ConfigDict(extra="ignore")
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
-    email: str
     phone: str
-    package: Optional[str] = None
-    message: str
+    email: Optional[str] = None
+    lesson_type: Optional[str] = None
+    preferred_instructor: Optional[str] = None
+    contact_method: Optional[str] = None
+    message: Optional[str] = None
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 

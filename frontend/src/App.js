@@ -1,52 +1,43 @@
-import { useEffect, useState } from "react";
-import Lenis from "lenis";
+import { useEffect } from "react";
 import "@/App.css";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import { Navbar } from "./components/site/Navbar";
-import { Hero } from "./components/site/Hero";
-import { MarqueeBar } from "./components/site/MarqueeBar";
-import { Manifesto } from "./components/site/Manifesto";
-import { Packages } from "./components/site/Packages";
-import { Reviews } from "./components/site/Reviews";
-import { Contact } from "./components/site/Contact";
 import { Footer } from "./components/site/Footer";
+import { MobileBar } from "./components/site/MobileBar";
+import Home from "./pages/Home";
+import DrivingLessons from "./pages/DrivingLessons";
+import Reviews from "./pages/Reviews";
+import Areas from "./pages/Areas";
+import Contact from "./pages/Contact";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
-  const [selectedPackage, setSelectedPackage] = useState("");
-
-  useEffect(() => {
-    const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
-    let raf;
-    const loop = (t) => {
-      lenis.raf(t);
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(raf);
-      lenis.destroy();
-    };
-  }, []);
-
-  const handleSelect = (name) => {
-    setSelectedPackage(name);
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="App">
-      <div className="noise-overlay" />
-      <Toaster theme="dark" position="bottom-right" />
-      <Navbar />
-      <main>
-        <Hero />
-        <MarqueeBar />
-        <Manifesto />
-        <Packages onSelect={handleSelect} />
-        <Reviews />
-        <Contact selectedPackage={selectedPackage} setSelectedPackage={setSelectedPackage} />
-      </main>
-      <Footer />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Toaster position="top-center" richColors />
+        <Navbar />
+        <main className="pb-20 lg:pb-0">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/driving-lessons" element={<DrivingLessons />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/areas-we-cover" element={<Areas />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+        <MobileBar />
+      </BrowserRouter>
     </div>
   );
 }

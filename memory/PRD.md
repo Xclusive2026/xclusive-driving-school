@@ -29,6 +29,16 @@
 - Footer with giant outline wordmark.
 - Backend: POST/GET /api/enquiries (verified via curl + UI e2e).
 
+## Overhaul (2026-08-15)
+- Rebranded to real logo (Sheffield/Rotherham) + friendly light theme (red #E4141B / white / black), Poppins + Plus Jakarta Sans.
+- Multi-page (react-router): Home, Driving Lessons, Reviews, Areas We Cover, Contact.
+- Nav: Home | Driving Lessons | Reviews | Areas We Cover | Contact + prominent Book a Lesson; sticky mobile WhatsApp/Book bar.
+- WhatsApp deep links (wa.me/447814129029) throughout; phone tel: links; email mailto.
+- Services w/ real prices: Manual £37.50, Automatic £40 (speciality), Refresher £37.50/£40, Intensive £600, Advanced £40. "Book" buttons prefill Contact lesson via ?lesson=.
+- Reviews page links to Facebook reviews (no invented reviews).
+- Enquiry form fields: name, phone, email, lesson_type, preferred_instructor, contact_method, message → POST /api/enquiries (backend model updated). Verified curl + full UI flow.
+- Contact details: 07814 129029, ishie677@gmail.com.
+
 ## Backlog
 - P1: Instructor profiles section, FAQ accordion, area/coverage map.
 - P2: Admin view for enquiries, Google reviews embed, blog/tips.

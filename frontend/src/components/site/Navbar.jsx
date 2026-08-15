@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { List, X } from "@phosphor-icons/react";
+import { List, X, Phone } from "@phosphor-icons/react";
 import { BRAND } from "../../data";
+import { BookButton } from "./Buttons";
 
 const LINKS = [
-  { label: "Method", href: "#method" },
-  { label: "Packages", href: "#packages" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "Driving Lessons", to: "/driving-lessons" },
+  { label: "Reviews", to: "/reviews" },
+  { label: "Areas We Cover", to: "/areas-we-cover" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const Navbar = () => {
@@ -15,58 +18,59 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const go = (href) => {
-    setOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <motion.header
+    <header
       data-testid="site-navbar"
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
-        scrolled ? "backdrop-blur-xl bg-black/60 border-b border-white/10" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/90 backdrop-blur-md soft-shadow" : "bg-white"
       }`}
     >
-      <nav className="max-w-[1400px] mx-auto px-5 md:px-10 h-[72px] flex items-center justify-between">
-        <button onClick={() => go("#top")} data-testid="nav-logo" className="flex items-center gap-3 group">
-          <img src={BRAND.logo} alt="Xclusive" className="w-9 h-9 object-contain" />
-          <span className="font-display text-xl tracking-tight uppercase leading-none">
-            Xclusive
-          </span>
-        </button>
+      <nav className="max-w-[1240px] mx-auto px-4 md:px-8 h-[74px] flex items-center justify-between">
+        <Link to="/" data-testid="nav-logo" onClick={() => setOpen(false)} className="flex items-center">
+          <img src={BRAND.logo} alt="Xclusive Driving School" className="h-11 md:h-12 w-auto object-contain" />
+        </Link>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-8">
           {LINKS.map((l) => (
-            <button
-              key={l.href}
-              data-testid={`nav-link-${l.label.toLowerCase()}`}
-              onClick={() => go(l.href)}
-              className="font-mono2 text-xs uppercase tracking-[0.2em] text-white/70 hover:text-[#FF2A2A] transition-colors duration-300"
+            <NavLink
+              key={l.to}
+              to={l.to}
+              data-testid={`nav-${l.label.toLowerCase().replace(/\s/g, "-")}`}
+              className={({ isActive }) =>
+                `font-head text-sm font-semibold transition-colors duration-200 ${
+                  isActive ? "text-[#E4141B]" : "text-[#17171A] hover:text-[#E4141B]"
+                }`
+              }
             >
               {l.label}
-            </button>
+            </NavLink>
           ))}
         </div>
 
-        <button
-          data-testid="nav-cta"
-          onClick={() => go("#contact")}
-          className="hidden md:block font-mono2 text-xs uppercase tracking-[0.2em] px-6 py-3 border border-white/30 text-white hover:bg-[#FF2A2A] hover:border-[#FF2A2A] transition-colors duration-300"
-        >
-          Book a Lesson
-        </button>
-
-        <button data-testid="mobile-menu-toggle" className="md:hidden text-white" onClick={() => setOpen(!open)}>
-          {open ? <X size={26} weight="bold" /> : <List size={26} weight="bold" />}
-        </button>
+        <div className="flex items-center gap-2">
+          <a
+            href={BRAND.phoneHref}
+            data-testid="nav-phone"
+            className="hidden md:inline-flex items-center gap-2 font-head font-semibold text-sm text-[#17171A] hover:text-[#E4141B] transition-colors mr-1"
+          >
+            <Phone size={17} weight="fill" />
+            {BRAND.phone}
+          </a>
+          <BookButton className="hidden sm:inline-flex" testid="nav-book-btn" />
+          <button
+            data-testid="mobile-menu-toggle"
+            className="lg:hidden p-2 text-[#17171A]"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X size={26} weight="bold" /> : <List size={26} weight="bold" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -76,28 +80,30 @@ export const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-black/95 border-b border-white/10"
+            className="lg:hidden overflow-hidden bg-white border-t border-[#ECE6E2]"
           >
-            <div className="px-6 py-8 flex flex-col gap-6">
+            <div className="px-5 py-6 flex flex-col gap-1">
               {LINKS.map((l) => (
-                <button
-                  key={l.href}
-                  onClick={() => go(l.href)}
-                  className="font-display text-3xl uppercase text-left tracking-tight"
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `font-head font-semibold text-lg py-3 border-b border-[#F2EEEA] ${
+                      isActive ? "text-[#E4141B]" : "text-[#17171A]"
+                    }`
+                  }
                 >
                   {l.label}
-                </button>
+                </NavLink>
               ))}
-              <button
-                onClick={() => go("#contact")}
-                className="font-mono2 text-xs uppercase tracking-[0.2em] px-6 py-4 bg-[#FF2A2A] text-white mt-2"
-              >
-                Book a Lesson
-              </button>
+              <a href={BRAND.phoneHref} className="font-head font-semibold text-lg py-3 text-[#17171A] flex items-center gap-2">
+                <Phone size={18} weight="fill" /> {BRAND.phone}
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 };

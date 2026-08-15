@@ -1,88 +1,121 @@
+const WA_NUMBER = "447814129029";
+
 export const BRAND = {
-  name: "Xclusive",
-  full: "Xclusive Driving School",
-  logo: "https://static.prod-images.emergentagent.com/jobs/36a19000-40e4-4a88-9ca0-c2bd02e2c17a/images/4da1c6e34a9425fa9b92890f646e3ab86b6ae0f1b48d9af4d9d9e5cec3a30c5c.jpeg",
-  phone: "+44 7700 900 118",
-  email: "hello@xclusivedriving.co.uk",
-  est: "EST. 2026",
+  name: "Xclusive Driving School",
+  short: "Xclusive",
+  logo: "https://customer-assets-lqy194kg.emergentagent.net/job_drive-school-6/artifacts/md4o03gs_Exclusive_Logo.jpg",
+  phone: "07814 129029",
+  phoneHref: "tel:+447814129029",
+  email: "ishie677@gmail.com",
+  emailHref: "mailto:ishie677@gmail.com",
+  areas: "Sheffield & Rotherham",
+  facebookReviews: "https://www.facebook.com/profile.php?id=100091924760890&sk=reviews",
 };
+
+export const waLink = (text = "Hi Xclusive Driving School, I'd like to book a driving lesson.") =>
+  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
 export const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1614609953905-baeff400aab3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBjYXIlMjBpbnRlcmlvciUyMHN0ZWVyaW5nJTIwd2hlZWwlMjBkYXJrfGVufDB8fHx8MTc4NTk2NDQ1Mnww&ixlib=rb-4.1.0&q=85",
-  interior: "https://images.unsplash.com/photo-1603980927988-9f98b676d581?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBjYXIlMjBpbnRlcmlvciUyMHN0ZWVyaW5nJTIwd2hlZWwlMjBkYXJrfGVufDB8fHx8MTc4NTk2NDQ1Mnww&ixlib=rb-4.1.0&q=85",
-  lesson: "https://images.unsplash.com/photo-1553782097-130fef5d3e27?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwyfHxkcml2aW5nJTIwbGVzc29uJTIwaW5zdHJ1Y3RvciUyMHJvYWR8ZW58MHx8fHwxNzg1OTY0NDUxfDA&ixlib=rb-4.1.0&q=85",
-  wheelWoman: "https://images.unsplash.com/photo-1527593167147-e9c94a5883e6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwzfHxkcml2aW5nJTIwbGVzc29uJTIwaW5zdHJ1Y3RvciUyMHJvYWR8ZW58MHx8fHwxNzg1OTY0NDUxfDA&ixlib=rb-4.1.0&q=85",
+  hero: "https://images.unsplash.com/photo-1597724903770-41afe05361ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwyfHxsZWFybmVyJTIwZHJpdmVyJTIwaGFwcHklMjBzbWlsaW5nJTIwY2FyJTIwbGVzc29ufGVufDB8fHx3aGl0ZXwxNzg2Nzg5ODk3fDA&ixlib=rb-4.1.0&q=85",
+  whyChoose: "https://images.unsplash.com/photo-1630406144797-821be1f35d75?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwxfHxkcml2aW5nJTIwaW5zdHJ1Y3RvciUyMHRlYWNoaW5nJTIwc3R1ZGVudCUyMGNhcnxlbnwwfHx8fDE3ODY3ODk4OTZ8MA&ixlib=rb-4.1.0&q=85",
+  manual: "https://images.unsplash.com/photo-1611508106567-6218ae6c5f6a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwzfHxkcml2aW5nJTIwaW5zdHJ1Y3RvciUyMHRlYWNoaW5nJTIwc3R1ZGVudCUyMGNhcnxlbnwwfHx8fDE3ODY3ODk4OTZ8MA&ixlib=rb-4.1.0&q=85",
+  automatic: "https://images.unsplash.com/photo-1592632789037-50d9f2be5c3c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHw0fHxsZWFybmVyJTIwZHJpdmVyJTIwaGFwcHklMjBzbWlsaW5nJTIwY2FyJTIwbGVzc29ufGVufDB8fHx3aGl0ZXwxNzg2Nzg5ODk3fDA&ixlib=rb-4.1.0&q=85",
+  refresher: "https://images.unsplash.com/photo-1537211790624-e6f568af4b13?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHw0fHxkcml2aW5nJTIwaW5zdHJ1Y3RvciUyMHRlYWNoaW5nJTIwc3R1ZGVudCUyMGNhcnxlbnwwfHx8fDE3ODY3ODk4OTZ8MA&ixlib=rb-4.1.0&q=85",
+  road: "https://images.unsplash.com/photo-1663513819140-4033b7913a97?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxjYXIlMjBkcml2aW5nJTIwb3BlbiUyMHJvYWQlMjB1ayUyMGNvdW50cnlzaWRlfGVufDB8fHx8MTc4Njc4OTkxOXww&ixlib=rb-4.1.0&q=85",
+  areaSheffield: "https://images.unsplash.com/photo-1668443326322-c4cdefb0c1c0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxTaGVmZmllbGQlMjBFbmdsYW5kJTIwY2l0eSUyMHN0cmVldHxlbnwwfHx8fDE3ODY3ODk5MTl8MA&ixlib=rb-4.1.0&q=85",
 };
 
-export const STATS = [
-  { value: "98%", label: "First-Time Pass Rate" },
-  { value: "12K+", label: "Drivers Trained" },
-  { value: "4.9", label: "Average Rating" },
-  { value: "20", label: "Elite Instructors" },
+export const LESSON_OPTIONS = [
+  "Manual — £37.50",
+  "Automatic — £40",
+  "Refresher — £37.50 Manual / £40 Automatic",
+  "Intensive Course — £600",
+  "Advanced Training — £40",
 ];
 
-export const CHAPTERS = [
+export const SERVICES = [
   {
-    n: "01",
-    title: "Calm Under Pressure",
-    body: "We don't shout, we coach. Every lesson is engineered to build genuine confidence behind the wheel, not anxiety. Progress you can feel from lesson one.",
+    id: "manual",
+    title: "Manual Driving Lessons",
+    price: "£37.50",
+    priceNote: "per hour",
+    blurb: "Learn how to confidently handle a manual car, from your first clutch control lesson to getting ready for your test.",
+    cta: "Book a Manual Lesson",
+    lessonType: "Manual — £37.50",
+    img: "manual",
   },
   {
-    n: "02",
-    title: "Dual-Control Precision",
-    body: "Every car in the fleet is fully dual-controlled and maintained to showroom standard. Learn in machines that respond exactly the way an examiner expects.",
+    id: "automatic",
+    title: "Automatic Driving Lessons",
+    price: "£40",
+    priceNote: "per hour",
+    tag: "Our speciality",
+    blurb: "If you don't want to worry about gears and clutch control, automatic lessons let you focus on the road and build your confidence.",
+    cta: "Book an Automatic Lesson",
+    lessonType: "Automatic — £40",
+    img: "automatic",
   },
   {
-    n: "03",
-    title: "Test-Route Mastery",
-    body: "Our instructors know every local test route inch by inch. We rehearse the real thing until pass day feels like just another confident drive.",
+    id: "refresher",
+    title: "Refresher Lessons",
+    price: "£37.50 / £40",
+    priceNote: "manual / automatic",
+    blurb: "Haven't driven for a while? Whether you've recently passed your test or haven't driven in years, we'll help you get comfortable behind the wheel again.",
+    cta: "Book a Refresher Lesson",
+    lessonType: "Refresher — £37.50 Manual / £40 Automatic",
+    img: "refresher",
+  },
+  {
+    id: "intensive",
+    title: "Intensive Driving Course",
+    price: "£600",
+    priceNote: "course",
+    blurb: "Want to get your lessons done in a shorter period? Our intensive course gives you a more focused way to work towards your driving goals.",
+    cta: "Enquire About Intensive Courses",
+    lessonType: "Intensive Course — £600",
+    img: "road",
+  },
+  {
+    id: "advanced",
+    title: "Advanced Training",
+    price: "£40",
+    priceNote: "per hour",
+    blurb: "Already driving but want to improve? Our advanced training can help you become more confident in different road conditions, improve your awareness and sharpen your driving skills.",
+    cta: "Enquire About Advanced Training",
+    lessonType: "Advanced Training — £40",
+    img: "whyChoose",
   },
 ];
 
-export const PACKAGES = [
+export const WHY = [
   {
-    name: "First Gear",
-    tag: "Absolute Beginner",
-    hours: "10",
-    price: "320",
-    features: ["10 hrs of tuition", "Free theory app access", "Beginner-friendly instructor", "Flexible weekly slots"],
-    featured: false,
+    title: "Automatic Specialists",
+    body: "Prefer an automatic? That's what we specialise in. No clutch or gear changes to worry about — just concentrate on the road and enjoy learning.",
+    icon: "GearSix",
   },
   {
-    name: "Full Throttle",
-    tag: "Most Popular",
-    hours: "20",
-    price: "600",
-    features: ["20 hrs of tuition", "Mock test included", "Priority booking", "Progress tracking", "Theory + hazard support"],
-    featured: true,
+    title: "Manual Lessons",
+    body: "Want to learn in a manual? We'll help you get comfortable with clutch control, gears, manoeuvres and everything else you need to become a confident driver.",
+    icon: "SteeringWheel",
   },
   {
-    name: "Fast Pass",
-    tag: "Intensive Course",
-    hours: "30",
-    price: "950",
-    features: ["30 hrs intensive", "Practical test included", "Test-route rehearsals", "Dedicated instructor", "Pass in 2–3 weeks"],
-    featured: false,
-  },
-];
-
-export const REVIEWS = [
-  {
-    name: "Amelia R.",
-    role: "Passed first time · 3 minors",
-    text: "I was terrified of driving. Xclusive completely flipped that. My instructor was unbelievably calm and I passed first time with only 3 minors.",
-    img: "https://images.unsplash.com/photo-1656769539038-15c9799524c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwzfHxoYXBweSUyMHlvdW5nJTIwZHJpdmVyJTIwbGVhcm5lciUyMGNhcnxlbnwwfHx8fDE3ODU5NjQ0NTJ8MA&ixlib=rb-4.1.0&q=85",
+    title: "Sheffield & Rotherham",
+    body: "We provide driving lessons across Sheffield and Rotherham, making it easier to learn around your home, work, college or university.",
+    icon: "MapPin",
   },
   {
-    name: "Marcus T.",
-    role: "Intensive course · Passed in 2 weeks",
-    text: "The Fast Pass course was worth every penny. Two weeks of proper coaching and I had my licence. The test-route rehearsals made pass day feel routine.",
-    img: "https://images.unsplash.com/photo-1604447199408-9798f9f64f88?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHlvdW5nJTIwZHJpdmVyJTIwbGVhcm5lciUyMGNhcnxlbnwwfHx8fDE3ODU5NjQ0NTJ8MA&ixlib=rb-4.1.0&q=85",
+    title: "Female Instructors Available",
+    body: "If you'd feel more comfortable learning with a female instructor, just let us know when you enquire.",
+    icon: "UserCircle",
   },
   {
-    name: "Priya & Dev",
-    role: "Family package · Both passed",
-    text: "We booked lessons for both our teens. Professional, punctual and genuinely kind instructors. Both kids passed within a month of each other.",
-    img: "https://images.unsplash.com/photo-1667020854803-0305af085242?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHw0fHxoYXBweSUyMHlvdW5nJTIwZHJpdmVyJTIwbGVhcm5lciUyMGNhcnxlbnwwfHx8fDE3ODU5NjQ0NTJ8MA&ixlib=rb-4.1.0&q=85",
+    title: "Bilingual Instructors Available",
+    body: "We have bilingual instructors available, so if you'd prefer some support in another language, let us know.",
+    icon: "Translate",
+  },
+  {
+    title: "Learn At Your Own Pace",
+    body: "Everyone learns differently. We'll work with you at your own pace, explain things clearly and help you feel more confident with every lesson.",
+    icon: "Heart",
   },
 ];
