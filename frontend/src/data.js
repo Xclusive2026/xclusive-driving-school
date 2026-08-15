@@ -21,7 +21,7 @@ export const LESSON_OPTIONS = [
   "Manual — £37.50",
   "Automatic — £40",
   "Refresher — £37.50 Manual / £40 Automatic",
-  "Intensive Course — £600",
+  "Intensive Course — £380 (10hr block)",
   "Advanced Training — £40",
 ];
 
@@ -60,11 +60,11 @@ export const SERVICES = [
   {
     id: "intensive",
     title: "Intensive Driving Course",
-    price: "£600",
-    priceNote: "course",
+    price: "£380",
+    priceNote: "10hr block",
     blurb: "Want to get your lessons done in a shorter period? Our intensive course gives you a more focused way to work towards your driving goals.",
     cta: "Enquire About Intensive Courses",
-    lessonType: "Intensive Course — £600",
+    lessonType: "Intensive Course — £380 (10hr block)",
     icon: "Lightning",
   },
   {
