@@ -1,1 +1,4 @@
 cron=3.0pl1-162
+libarchive-tools=3.6.2-1+deb12u4
+p7zip-full=16.02+really26.02+dfsg-0+deb12u1
+unar=1.10.7+ds1+really1.10.1-2+b2
