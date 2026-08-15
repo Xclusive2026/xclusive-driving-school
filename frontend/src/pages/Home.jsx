@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart,
-  CheckCircle, Star, ArrowRight, CarProfile,
+  CheckCircle, Star, ArrowRight, CarProfile, ArrowsClockwise, Lightning, Medal,
 } from "@phosphor-icons/react";
-import { BRAND, IMAGES, WHY, SERVICES } from "../data";
+import { BRAND, WHY, SERVICES } from "../data";
 import { Reveal } from "../components/site/Reveal";
 import { BookButton, WhatsAppButton, OutlineButton } from "../components/site/Buttons";
 
-const ICONS = { GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart };
-
+const ICONS = { GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart, ArrowsClockwise, Lightning, Medal, CarProfile };
 const HIGHLIGHTS = ["Automatic & Manual", "Female Instructors Available", "Bilingual Instructors Available"];
 
 export default function Home() {
@@ -17,7 +16,8 @@ export default function Home() {
     <div>
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#FBF7F4] pt-[74px]">
-        <div className="max-w-[1240px] mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center py-14 md:py-20">
+        <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-[#E4141B]/8 blur-2xl" />
+        <div className="max-w-[1240px] mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center py-14 md:py-24 relative">
           <div>
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full bg-[#E4141B]/10 text-[#E4141B] font-head font-semibold text-sm px-4 py-2">
@@ -51,25 +51,47 @@ export default function Home() {
             </Reveal>
           </div>
 
+          {/* Decorative brand panel (no photos) */}
           <Reveal delay={0.15}>
             <div className="relative">
               <motion.div
-                initial={{ scale: 1.05 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-[28px] overflow-hidden soft-shadow-lg aspect-[4/5] sm:aspect-[5/5]"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="relative rounded-[32px] bg-[#17171A] soft-shadow-lg overflow-hidden p-10"
               >
-                <img src={IMAGES.hero} alt="Happy learner driver" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)", backgroundSize: "22px 22px" }} />
+                <div className="relative">
+                  <div className="bg-white rounded-2xl p-4 inline-block soft-shadow">
+                    <img src={BRAND.logo} alt="Xclusive Driving School" className="h-16 w-auto object-contain" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 mt-8">
+                    {[
+                      { icon: GearSix, label: "Automatic" },
+                      { icon: SteeringWheel, label: "Manual" },
+                      { icon: UserCircle, label: "Female instructors" },
+                      { icon: Translate, label: "Bilingual" },
+                    ].map((c) => (
+                      <div key={c.label} className="flex items-center gap-3 rounded-2xl bg-white/8 border border-white/10 px-4 py-4">
+                        <c.icon size={26} weight="duotone" className="text-[#E4141B]" />
+                        <span className="font-head font-semibold text-white text-sm">{c.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
-              <div className="absolute -bottom-5 -left-2 sm:left-6 bg-white rounded-2xl soft-shadow px-5 py-4 flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-[#E4141B]/10 grid place-items-center">
-                  <Star size={22} weight="fill" className="text-[#E4141B]" />
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="absolute -bottom-5 -left-2 sm:left-6 bg-white rounded-2xl soft-shadow px-5 py-4 flex items-center gap-3"
+              >
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} weight="fill" className="text-[#E4141B]" />)}
                 </div>
-                <div>
-                  <div className="font-head font-bold text-lg leading-none">Friendly &amp; patient</div>
-                  <div className="font-body text-sm text-[#4B4B52] mt-1">Learn at your own pace</div>
-                </div>
-              </div>
+                <div className="font-head font-bold text-sm leading-tight">Loved by<br />our learners</div>
+              </motion.div>
             </div>
           </Reveal>
         </div>
@@ -126,25 +148,31 @@ export default function Home() {
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
-            {SERVICES.slice(0, 3).map((s, i) => (
-              <Reveal key={s.id} delay={i * 0.06}>
-                <Link to="/driving-lessons" className="group block bg-white rounded-3xl overflow-hidden border border-[#ECE6E2] soft-shadow hover:-translate-y-1 transition-transform duration-300">
-                  <div className="aspect-[16/10] overflow-hidden">
-                    <img src={IMAGES[s.img]} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-6">
-                    {s.tag && <span className="font-head font-semibold text-xs text-[#E4141B] uppercase tracking-wide">{s.tag}</span>}
-                    <h3 className="font-head font-bold text-xl mt-1">{s.title}</h3>
-                    <div className="flex items-center justify-between mt-4">
-                      <span className="font-head font-extrabold text-2xl text-[#E4141B]">{s.price}</span>
-                      <span className="inline-flex items-center gap-1 font-head font-semibold text-sm text-[#17171A] group-hover:text-[#E4141B] transition-colors">
-                        Learn more <ArrowRight size={15} weight="bold" />
-                      </span>
+            {SERVICES.slice(0, 3).map((s, i) => {
+              const Icon = ICONS[s.icon];
+              return (
+                <Reveal key={s.id} delay={i * 0.06}>
+                  <Link to={`/contact?lesson=${encodeURIComponent(s.lessonType)}`} className="group block h-full bg-white rounded-3xl overflow-hidden border border-[#ECE6E2] soft-shadow hover:-translate-y-1 transition-transform duration-300">
+                    <div className="p-7">
+                      <div className="flex items-center justify-between">
+                        <div className="w-14 h-14 rounded-2xl bg-[#E4141B] grid place-items-center">
+                          <Icon size={28} weight="fill" className="text-white" />
+                        </div>
+                        {s.tag && <span className="font-head font-semibold text-xs text-[#E4141B] uppercase tracking-wide bg-[#E4141B]/10 rounded-full px-3 py-1.5">{s.tag}</span>}
+                      </div>
+                      <h3 className="font-head font-bold text-xl mt-6">{s.title}</h3>
+                      <p className="font-body text-sm text-[#4B4B52] leading-relaxed mt-2 line-clamp-3">{s.blurb}</p>
+                      <div className="flex items-center justify-between mt-6 pt-5 border-t border-[#F2EEEA]">
+                        <span className="font-head font-extrabold text-2xl text-[#E4141B]">{s.price}</span>
+                        <span className="inline-flex items-center gap-1 font-head font-semibold text-sm text-[#17171A] group-hover:text-[#E4141B] transition-colors">
+                          Book now <ArrowRight size={15} weight="bold" />
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -161,13 +189,15 @@ export default function Home() {
               </div>
               <h2 className="font-head font-extrabold text-3xl md:text-4xl">Don't just take our word for it</h2>
               <p className="font-body text-lg text-white/70 max-w-xl mx-auto mt-4">
-                We're proud of the relationships we build with our learners. See what our students say over on Facebook.
+                We're proud of every learner who passes with us. See our Pass Wall and read genuine reviews from our students.
               </p>
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                <a href={BRAND.facebookReviews} target="_blank" rel="noopener noreferrer" data-testid="home-fb-reviews" className="inline-flex items-center gap-2 rounded-full bg-white text-[#17171A] px-7 py-4 font-head font-semibold hover:bg-white/90 transition">
-                  Read Our Facebook Reviews
+                <Link to="/reviews" data-testid="home-reviews-page" className="inline-flex items-center gap-2 rounded-full bg-white text-[#17171A] px-7 py-4 font-head font-semibold hover:bg-white/90 transition">
+                  See our Pass Wall
+                </Link>
+                <a href={BRAND.facebookReviews} target="_blank" rel="noopener noreferrer" data-testid="home-fb-reviews" className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 text-white px-7 py-4 font-head font-semibold hover:text-[#E4141B] transition">
+                  Facebook Reviews
                 </a>
-                <OutlineButton to="/reviews" label="Reviews page" className="!border-white/30 !text-white hover:!text-[#E4141B]" testid="home-reviews-page" />
               </div>
             </div>
           </Reveal>
@@ -177,25 +207,33 @@ export default function Home() {
       {/* AREAS PREVIEW */}
       <section className="pb-20 md:pb-28">
         <div className="max-w-[1240px] mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center bg-[#FBF7F4] rounded-[32px] overflow-hidden border border-[#ECE6E2]">
-            <div className="p-10 md:p-14">
-              <Reveal>
-                <span className="inline-flex items-center gap-2 font-head font-semibold text-[#E4141B] text-sm uppercase tracking-wide">
-                  <MapPin size={16} weight="fill" /> Areas we cover
-                </span>
-                <h2 className="font-head font-extrabold text-3xl md:text-4xl mt-3">Driving lessons around Sheffield &amp; Rotherham</h2>
-                <p className="font-body text-lg text-[#4B4B52] mt-4 leading-relaxed">
-                  Based in the local area, we make it easier to learn around your home, work, college or university. Not sure if we cover your area? Just ask — we'll be happy to check.
-                </p>
-                <div className="mt-7">
-                  <OutlineButton to="/areas-we-cover" label="Check Availability" testid="home-check-area" />
+          <Reveal>
+            <div className="bg-[#FBF7F4] rounded-[32px] border border-[#ECE6E2] p-10 md:p-14">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <span className="inline-flex items-center gap-2 font-head font-semibold text-[#E4141B] text-sm uppercase tracking-wide">
+                    <MapPin size={16} weight="fill" /> Areas we cover
+                  </span>
+                  <h2 className="font-head font-extrabold text-3xl md:text-4xl mt-3">Driving lessons around Sheffield &amp; Rotherham</h2>
+                  <p className="font-body text-lg text-[#4B4B52] mt-4 leading-relaxed">
+                    Based in the local area, we make it easier to learn around your home, work, college or university. Not sure if we cover your area? Just ask — we'll be happy to check.
+                  </p>
+                  <div className="mt-7">
+                    <OutlineButton to="/areas-we-cover" label="Check Availability" testid="home-check-area" />
+                  </div>
                 </div>
-              </Reveal>
+                <div className="grid grid-cols-2 gap-4">
+                  {["Sheffield", "Rotherham"].map((a) => (
+                    <div key={a} className="bg-white border border-[#ECE6E2] rounded-3xl p-8 text-center soft-shadow">
+                      <MapPin size={34} weight="fill" className="text-[#E4141B] mx-auto" />
+                      <div className="font-head font-bold text-2xl mt-4">{a}</div>
+                      <div className="font-body text-sm text-[#4B4B52] mt-1">Lessons available</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="h-64 lg:h-full min-h-[280px]">
-              <img src={IMAGES.areaSheffield} alt="Sheffield streets" className="w-full h-full object-cover" />
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

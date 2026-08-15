@@ -1,5 +1,5 @@
-import { MapPin, CheckCircle, WhatsappLogo } from "@phosphor-icons/react";
-import { BRAND, IMAGES, waLink } from "../data";
+import { MapPin, CheckCircle, WhatsappLogo, NavigationArrow } from "@phosphor-icons/react";
+import { waLink } from "../data";
 import { Reveal } from "../components/site/Reveal";
 import { BookButton } from "../components/site/Buttons";
 
@@ -49,18 +49,25 @@ export default function Areas() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="grid gap-5">
-              <div className="rounded-[28px] overflow-hidden soft-shadow aspect-[16/11]">
-                <img src={IMAGES.areaSheffield} alt="Sheffield" className="w-full h-full object-cover" />
-              </div>
-              <div className="grid grid-cols-2 gap-5">
-                {["Sheffield", "Rotherham"].map((a) => (
-                  <div key={a} className="bg-white border border-[#ECE6E2] rounded-2xl p-6 text-center soft-shadow">
-                    <MapPin size={28} weight="fill" className="text-[#E4141B] mx-auto" />
-                    <div className="font-head font-bold text-xl mt-3">{a}</div>
-                    <div className="font-body text-sm text-[#4B4B52] mt-1">Lessons available</div>
-                  </div>
-                ))}
+            <div className="relative rounded-[32px] bg-[#17171A] p-8 md:p-10 soft-shadow-lg overflow-hidden">
+              <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)", backgroundSize: "22px 22px" }} />
+              <div className="relative">
+                <div className="flex items-center gap-2 text-white/70 font-head font-semibold text-sm">
+                  <NavigationArrow size={18} weight="fill" className="text-[#E4141B]" /> Our coverage
+                </div>
+                <div className="grid gap-4 mt-6">
+                  {["Sheffield", "Rotherham"].map((a) => (
+                    <div key={a} className="flex items-center gap-4 rounded-3xl bg-white/8 border border-white/10 px-6 py-6">
+                      <div className="w-14 h-14 rounded-2xl bg-[#E4141B] grid place-items-center shrink-0">
+                        <MapPin size={28} weight="fill" className="text-white" />
+                      </div>
+                      <div>
+                        <div className="font-head font-bold text-2xl text-white">{a}</div>
+                        <div className="font-body text-sm text-white/60">Lessons available across the area</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </Reveal>

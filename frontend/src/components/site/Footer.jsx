@@ -50,6 +50,11 @@ export const Footer = () => (
             </a>
           </li>
           <li>
+            <a href={BRAND.phone2Href} className="flex items-center gap-3 text-white/80 hover:text-[#E4141B] transition-colors">
+              <Phone size={18} weight="fill" /> {BRAND.phone2}
+            </a>
+          </li>
+          <li>
             <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-[#25D366] transition-colors">
               <WhatsappLogo size={18} weight="fill" /> {BRAND.phone}
             </a>
