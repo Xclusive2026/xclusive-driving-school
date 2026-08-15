@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { FacebookLogo, GoogleLogo, InstagramLogo, TiktokLogo, Star, Quotes, X, CaretLeft, CaretRight, SealCheck } from "@phosphor-icons/react";
 import { BRAND } from "../data";
 import { Reveal } from "../components/site/Reveal";
 import { BookButton } from "../components/site/Buttons";
+
+const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const PASS_IMAGES = Array.from({ length: 24 }, (_, i) => `/reviews/pass-${i + 1}.jpg`);
 
@@ -27,6 +30,30 @@ const TESTIMONIALS = [
 
 export default function Reviews() {
   const [lightbox, setLightbox] = useState(null);
+  const [google, setGoogle] = useState(null);
+
+  useEffect(() => {
+    axios.get(`${API}/google-reviews`).then((r) => setGoogle(r.data)).catch(() => {});
+  }, []);
+
+  const live = google && google.configured && Array.isArray(google.reviews) && google.reviews.length > 0;
+  const ratingText = live && google.rating ? Number(google.rating).toFixed(1) : "5.0";
+  const ratingCount = live && google.user_rating_count ? google.user_rating_count : null;
+  const cards = live
+    ? google.reviews.map((r) => ({
+        text: r.text,
+        name: r.author || "Google user",
+        tag: r.relative_time || "Google review",
+        rating: Math.round(r.rating || 5),
+        uri: r.google_maps_uri,
+      }))
+    : TESTIMONIALS.map((t) => ({
+        text: t.text,
+        name: "Verified learner",
+        tag: `${t.tag} · Posted on Google`,
+        rating: 5,
+        uri: BRAND.google,
+      }));
 
   useEffect(() => {
     const onKey = (e) => {
@@ -48,7 +75,7 @@ export default function Reviews() {
             <span className="font-head font-semibold text-[#E4141B] text-sm uppercase tracking-wide">Reviews</span>
             <h1 className="font-head font-extrabold text-4xl md:text-5xl mt-3">Don't just take our word for it</h1>
             <p className="font-body text-lg text-[#4B4B52] leading-relaxed mt-5">
-              We're proud of the relationships we build with our learners — and even prouder of every test pass. Here's some of the happy faces and kind words from people we've helped across Sheffield &amp; Rotherham.
+              We're proud of the relationships we build with our learners — and even prouder of every test pass. Here's some of the happy faces and kind words from people we've helped across Sheffield &amp; Rotherham with <strong className="font-bold text-[#17171A]">Xclusive Driving School</strong>.
             </p>
           </Reveal>
 
@@ -62,13 +89,13 @@ export default function Reviews() {
               <span className="hidden sm:block w-px h-10 bg-[#ECE6E2]" />
               <div className="flex flex-col items-center sm:items-start">
                 <div className="flex items-center gap-2">
-                  <span className="font-head font-extrabold text-3xl text-[#17171A]">5.0</span>
+                  <span className="font-head font-extrabold text-3xl text-[#17171A]">{ratingText}</span>
                   <div className="flex">
                     {[...Array(5)].map((_, i) => <Star key={i} size={20} weight="fill" className="text-[#FBBC05]" />)}
                   </div>
                 </div>
                 <a href={BRAND.google} target="_blank" rel="noopener noreferrer" data-testid="google-rating-link" className="font-head font-semibold text-sm text-[#E4141B] hover:underline mt-1">
-                  Read our Google reviews →
+                  {ratingCount ? `Read our ${ratingCount} Google reviews →` : "Read our Google reviews →"}
                 </a>
               </div>
             </div>
@@ -79,26 +106,26 @@ export default function Reviews() {
       {/* Testimonials */}
       <section className="pb-6 md:pb-10">
         <div className="max-w-[1240px] mx-auto px-4 md:px-8 grid md:grid-cols-3 gap-5">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={i} delay={i * 0.08}>
+          {cards.map((c, i) => (
+            <Reveal key={i} delay={(i % 3) * 0.08}>
               <div className="h-full bg-white border border-[#ECE6E2] rounded-3xl p-7 soft-shadow flex flex-col">
                 <div className="flex items-center justify-between">
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, s) => (
-                      <Star key={s} size={18} weight="fill" className="text-[#FBBC05]" />
+                      <Star key={s} size={18} weight="fill" className={s < c.rating ? "text-[#FBBC05]" : "text-[#E4E0DC]"} />
                     ))}
                   </div>
                   <GoogleLogo size={24} weight="fill" className="text-[#4285F4]" />
                 </div>
                 <Quotes size={34} weight="fill" className="text-[#E4141B]/20 mt-4" />
-                <p className="font-body text-[#17171A] leading-relaxed mt-2 flex-1">{t.text}</p>
+                <p className="font-body text-[#17171A] leading-relaxed mt-2 flex-1">{c.text}</p>
                 <div className="mt-6 pt-5 border-t border-[#F2EEEA] flex items-center gap-3">
                   <span className="w-10 h-10 rounded-full bg-[#E4141B]/10 grid place-items-center">
                     <SealCheck size={20} weight="fill" className="text-[#E4141B]" />
                   </span>
                   <span>
-                    <span className="block font-head font-bold text-sm">Verified learner</span>
-                    <span className="block font-body text-xs text-[#4B4B52]">{t.tag} · Posted on Google</span>
+                    <span className="block font-head font-bold text-sm">{c.name}</span>
+                    <span className="block font-body text-xs text-[#4B4B52]">{c.tag}</span>
                   </span>
                 </div>
               </div>

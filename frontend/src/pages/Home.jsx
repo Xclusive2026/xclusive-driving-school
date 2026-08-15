@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 import {
   GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart,
-  CheckCircle, Star, ArrowRight, CarProfile, ArrowsClockwise, Lightning, Medal,
+  CheckCircle, Star, ArrowRight, CarProfile, ArrowsClockwise, Lightning, Medal, GoogleLogo, Quotes,
 } from "@phosphor-icons/react";
 import { BRAND, WHY, SERVICES } from "../data";
 import { Reveal } from "../components/site/Reveal";
@@ -31,7 +32,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="font-body text-lg text-[#4B4B52] leading-relaxed mt-6 max-w-xl">
-                Learning to drive can be exciting, but we know it can also feel nerve-wracking. At Xclusive Driving School, we'll help you feel comfortable behind the wheel, build your confidence and work towards becoming a safe, independent driver.
+                Learning to drive can be exciting, but we know it can also feel nerve-wracking. At <strong className="font-bold text-[#17171A]">Xclusive Driving School</strong>, we'll help you feel comfortable behind the wheel, build your confidence and work towards becoming a safe, independent driver.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
@@ -92,6 +93,67 @@ export default function Home() {
                 </div>
                 <div className="font-head font-bold text-sm leading-tight">Loved by<br />our learners</div>
               </motion.div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* STAR REVIEW TRUST BAND */}
+      <section className="py-14 md:py-20">
+        <div className="max-w-[1240px] mx-auto px-4 md:px-8">
+          <Reveal>
+            <div className="relative bg-white border border-[#ECE6E2] rounded-[32px] soft-shadow overflow-hidden">
+              <div className="grid md:grid-cols-[auto_1fr] items-center gap-8 p-8 md:p-12">
+                {/* Big score */}
+                <div className="flex items-center gap-6 md:pr-12 md:border-r border-[#ECE6E2]">
+                  <div className="text-center">
+                    <div className="font-head font-extrabold text-6xl md:text-7xl leading-none text-[#17171A]">5.0</div>
+                    <div className="flex justify-center gap-1 mt-3">
+                      {[...Array(5)].map((_, i) => (
+                        <motion.span
+                          key={i}
+                          initial={{ opacity: 0, scale: 0.4, rotate: -30 }}
+                          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.1 + i * 0.12, type: "spring", stiffness: 260, damping: 14 }}
+                        >
+                          <Star size={26} weight="fill" className="text-[#FBBC05]" />
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                {/* Text */}
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#25D366]/12 text-[#1a9c4b] font-head font-semibold text-sm px-4 py-1.5">
+                    <CheckCircle size={16} weight="fill" /> Rated Excellent by our learners
+                  </div>
+                  <h2 className="font-head font-extrabold text-2xl md:text-3xl mt-4 leading-snug">
+                    Loved by drivers across Sheffield &amp; Rotherham
+                  </h2>
+                  <p className="font-body text-[#4B4B52] mt-2 max-w-xl">
+                    First-time passes, friendly instructors and a whole lot of happy faces on our Pass Wall — rated 5 stars on Google &amp; Facebook.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4 mt-5">
+                    <span className="inline-flex items-center gap-2 font-head font-semibold text-sm text-[#17171A]">
+                      <GoogleLogo size={20} weight="fill" className="text-[#4285F4]" /> Google 5.0
+                    </span>
+                    <Link to="/reviews" data-testid="starband-reviews" className="inline-flex items-center gap-1.5 font-head font-semibold text-sm text-[#E4141B] hover:underline">
+                      See all reviews <ArrowRight size={15} weight="bold" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {/* marquee strip */}
+              <div className="bg-[#E4141B] py-3">
+                <Marquee speed={55} gradient={false} autoFill>
+                  {["FIRST-TIME PASSES", "FRIENDLY & PATIENT INSTRUCTORS", "AUTOMATIC SPECIALISTS", "5-STAR RATED", "SHEFFIELD & ROTHERHAM"].map((w) => (
+                    <span key={w} className="inline-flex items-center gap-3 px-6 font-head font-bold text-white text-sm uppercase tracking-wide">
+                      <Star size={15} weight="fill" /> {w}
+                    </span>
+                  ))}
+                </Marquee>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -174,6 +236,24 @@ export default function Home() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* MOTTO */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-[1240px] mx-auto px-4 md:px-8">
+          <Reveal>
+            <div className="relative bg-[#17171A] rounded-[32px] p-10 md:p-20 text-center overflow-hidden">
+              <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
+              <Quotes size={56} weight="fill" className="text-[#E4141B] mx-auto relative" />
+              <p className="relative font-head font-extrabold text-white text-3xl sm:text-4xl md:text-5xl leading-[1.15] mt-6 max-w-4xl mx-auto">
+                It's not about the problem.<br className="hidden sm:block" /> It's about <span className="text-[#E4141B]">how we fix it.</span>
+              </p>
+              <p className="relative font-body text-white/60 mt-6 max-w-lg mx-auto">
+                Every learner hits a tricky moment — that's normal. What matters is how we work through it together, calmly and at your pace.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-const WA_NUMBER = "447814129029";
+const WA_NUMBER = "447838709089";
 
 export const BRAND = {
   name: "Xclusive Driving School",
@@ -14,7 +14,7 @@ export const BRAND = {
   facebookReviews: "https://www.facebook.com/profile.php?id=100091924760890&sk=reviews",
   instagram: "https://www.instagram.com/xculsivedriving",
   tiktok: "https://www.tiktok.com/@ali7864280",
-  google: "https://share.google/zNhW4NmZofe73Fp9Q",
+  google: "https://www.google.com/search?kgmid=/g/11x2xn5l9x&q=Xclusive+Driving+School+(Automatic)#lrd=0x247e23d91ed942f:0x847f6048c3b7d56a,1,,,,",
 };
 
 export const waLink = (text = "Hi Xclusive Driving School, I'd like to book a driving lesson.") =>

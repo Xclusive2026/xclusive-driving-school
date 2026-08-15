@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { List, X, Phone } from "@phosphor-icons/react";
 import { BRAND } from "../../data";
 import { BookButton } from "./Buttons";
+import { Socials, SOCIAL_LINKS } from "./Socials";
 
 const LINKS = [
   { label: "Home", to: "/" },
@@ -30,19 +31,22 @@ export const Navbar = () => {
         scrolled ? "bg-white/90 backdrop-blur-md soft-shadow" : "bg-white"
       }`}
     >
-      <nav className="max-w-[1240px] mx-auto px-4 md:px-8 h-[74px] flex items-center justify-between">
-        <Link to="/" data-testid="nav-logo" onClick={() => setOpen(false)} className="flex items-center">
-          <img src={BRAND.logo} alt="Xclusive Driving School" className="h-11 md:h-12 w-auto object-contain" />
+      <nav className="max-w-[1240px] mx-auto px-4 md:px-8 h-[74px] flex items-center justify-between gap-4">
+        <Link to="/" data-testid="nav-logo" onClick={() => setOpen(false)} className="flex items-center gap-2.5 shrink-0">
+          <img src={BRAND.logo} alt="Xclusive Driving School" className="h-9 md:h-10 w-auto object-contain" />
+          <span className="hidden sm:block font-head font-extrabold text-[#17171A] leading-none text-sm lg:text-base whitespace-nowrap">
+            Xclusive <span className="text-[#E4141B]">Driving School</span>
+          </span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-6">
           {LINKS.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               data-testid={`nav-${l.label.toLowerCase().replace(/\s/g, "-")}`}
               className={({ isActive }) =>
-                `font-head text-sm font-semibold transition-colors duration-200 ${
+                `font-head text-sm font-semibold whitespace-nowrap transition-colors duration-200 ${
                   isActive ? "text-[#E4141B]" : "text-[#17171A] hover:text-[#E4141B]"
                 }`
               }
@@ -52,11 +56,12 @@ export const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
+          <Socials className="hidden xl:flex mr-1" size={16} btn="w-8 h-8" />
           <a
             href={BRAND.phoneHref}
             data-testid="nav-phone"
-            className="hidden md:inline-flex items-center gap-2 font-head font-semibold text-sm text-[#17171A] hover:text-[#E4141B] transition-colors mr-1"
+            className="hidden md:inline-flex xl:hidden items-center gap-2 font-head font-semibold text-sm text-[#17171A] hover:text-[#E4141B] transition-colors mr-1"
           >
             <Phone size={17} weight="fill" />
             {BRAND.phone}
@@ -100,6 +105,13 @@ export const Navbar = () => {
               <a href={BRAND.phoneHref} className="font-head font-semibold text-lg py-3 text-[#17171A] flex items-center gap-2">
                 <Phone size={18} weight="fill" /> {BRAND.phone}
               </a>
+              <div className="flex items-center gap-3 pt-4">
+                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-11 h-11 rounded-full bg-[#FBF7F4] grid place-items-center text-[#17171A]">
+                    <Icon size={22} weight="fill" />
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}

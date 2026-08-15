@@ -17,7 +17,8 @@ export const Footer = () => (
         <div className="bg-white rounded-2xl p-3 inline-block">
           <img src={BRAND.logo} alt="Xclusive Driving School" className="h-14 w-auto object-contain" />
         </div>
-        <p className="font-body text-white/70 leading-relaxed mt-6 max-w-sm">
+        <h3 className="font-head font-extrabold text-2xl mt-5">Xclusive <span className="text-[#E4141B]">Driving School</span></h3>
+        <p className="font-body text-white/70 leading-relaxed mt-3 max-w-sm">
           Friendly driving lessons across Sheffield &amp; Rotherham. Automatic &amp; manual, female and bilingual instructors available.
         </p>
         <div className="flex items-center gap-3 mt-6">
@@ -65,7 +66,7 @@ export const Footer = () => (
           </li>
           <li>
             <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-[#25D366] transition-colors">
-              <WhatsappLogo size={18} weight="fill" /> {BRAND.phone}
+              <WhatsappLogo size={18} weight="fill" /> {BRAND.phone2}
             </a>
           </li>
           <li>

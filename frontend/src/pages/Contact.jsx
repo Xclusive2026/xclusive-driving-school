@@ -46,7 +46,7 @@ export default function Contact() {
                   <span className="w-12 h-12 rounded-xl bg-[#25D366]/12 grid place-items-center"><WhatsappLogo size={22} weight="fill" className="text-[#25D366]" /></span>
                   <span>
                     <span className="block font-head font-semibold text-sm text-[#4B4B52]">Message us on WhatsApp</span>
-                    <span className="block font-head font-bold text-lg">{BRAND.phone}</span>
+                    <span className="block font-head font-bold text-lg">{BRAND.phone2}</span>
                   </span>
                 </a>
                 <a href={BRAND.emailHref} data-testid="contact-email" className="flex items-center gap-4 bg-white border border-[#ECE6E2] rounded-2xl p-5 soft-shadow hover:border-[#E4141B]/40 transition">
