@@ -29,6 +29,7 @@ export const LESSON_OPTIONS = [
   "Block Lesson — £380 (10 hours)",
   "Advanced Training — £40",
   "Test Ready Lesson — £40",
+  "Taxi Lesson — £40",
 ];
 
 export const SERVICES = [
@@ -93,6 +94,16 @@ export const SERVICES = [
     cta: "Book a Test Ready Lesson",
     lessonType: "Test Ready Lesson — £40",
     icon: "SealCheck",
+  },
+  {
+    id: "taxi",
+    title: "Taxi Lesson",
+    price: "£40",
+    priceNote: "per hour",
+    blurb: "Looking to become a taxi driver in Sheffield or Doncaster? We'll help you feel confident on the road and get you ready for the demands of taxi driving. From navigating busy roads to building safe, professional driving habits, our lessons are tailored to help you get where you need to be.",
+    cta: "Book a Taxi Lesson",
+    lessonType: "Taxi Lesson — £40",
+    icon: "Taxi",
   },
 ];
 
