@@ -28,6 +28,11 @@ const TESTIMONIALS = [
     tag: "Passed first time",
     name: "Raegan Pawlyn",
   },
+  {
+    text: "Ishie is an amazing driving instructor who helped me pass first time with 0 minors! She is very kind, patient, and knowledgeable and knows exactly what the examiners are looking for, and explains things in detail as well as their reasoning. I would recommend her and Xclusive Driving School to everyone!",
+    tag: "Passed first time · 0 minors",
+    name: "Khizr Merchant",
+  },
 ];
 
 export default function Reviews() {
