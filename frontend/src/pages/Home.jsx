@@ -32,7 +32,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="font-body text-lg text-[#4B4B52] leading-relaxed mt-6 max-w-xl">
-                Learning to drive can be exciting, but we know it can also feel nerve-wracking. At <strong className="font-bold text-[#17171A]">Xclusive Driving School</strong>, we'll help you feel comfortable behind the wheel, build your confidence and work towards becoming a safe, independent driver.
+                Learning to drive should be an exciting journey, not something to feel anxious about. At <strong className="font-bold text-[#17171A]">Xclusive Driving School</strong>, we specialise in helping nervous and anxious learners feel comfortable behind the wheel. With patient, supportive tuition tailored to you, we'll build your confidence step by step and help you become a safe, confident and independent driver.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
