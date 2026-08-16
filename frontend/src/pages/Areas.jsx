@@ -6,7 +6,7 @@ import { BookButton } from "../components/site/Buttons";
 const POINTS = [
   "Learn around your home, work, college or university",
   "Automatic driving lessons available across both areas",
-  "Female and bilingual instructors available on request",
+  "Male and female fully qualified ADI instructors, plus bilingual, available on request",
 ];
 
 export default function Areas() {

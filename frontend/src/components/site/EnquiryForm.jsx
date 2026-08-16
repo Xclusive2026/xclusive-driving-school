@@ -103,6 +103,7 @@ export const EnquiryForm = ({ initialLesson = "" }) => {
         <select data-testid="field-instructor" className="field cursor-pointer" value={form.preferred_instructor} onChange={set("preferred_instructor")}>
           <option>No preference</option>
           <option>Female instructor</option>
+          <option>Male instructor</option>
         </select>
       </div>
       <div className="sm:col-span-2">

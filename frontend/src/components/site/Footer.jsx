@@ -19,7 +19,7 @@ export const Footer = () => (
         </div>
         <h3 className="font-head font-extrabold text-2xl mt-5">Xclusive <span className="text-[#E4141B]">Driving School</span></h3>
         <p className="font-body text-white/70 leading-relaxed mt-3 max-w-sm">
-          Friendly automatic driving lessons across Sheffield &amp; Rotherham. Female and bilingual instructors available.
+          Friendly automatic driving lessons across Sheffield &amp; Rotherham. Male and female fully qualified ADI instructors, plus bilingual instructors, available.
         </p>
         <div className="flex items-center gap-3 mt-6">
           <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="footer-whatsapp" className="w-11 h-11 rounded-full bg-[#25D366] grid place-items-center hover:brightness-95 transition" aria-label="WhatsApp">

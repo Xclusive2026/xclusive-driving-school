@@ -121,8 +121,8 @@ export const WHY = [
     icon: "MapPin",
   },
   {
-    title: "Female Instructors Available",
-    body: "If you'd feel more comfortable learning with a female instructor, just let us know when you enquire.",
+    title: "Male & Female ADI Instructors",
+    body: "All of our instructors are fully qualified ADIs (Approved Driving Instructors). We have both male and female instructors available, so just let us know your preference when you enquire.",
     icon: "UserCircle",
   },
   {

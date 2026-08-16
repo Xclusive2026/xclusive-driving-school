@@ -10,7 +10,7 @@ import { Reveal } from "../components/site/Reveal";
 import { BookButton, WhatsAppButton, OutlineButton } from "../components/site/Buttons";
 
 const ICONS = { GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart, ArrowsClockwise, Lightning, Medal, CarProfile };
-const HIGHLIGHTS = ["Automatic Specialists", "Female Instructors Available", "Bilingual Instructors Available"];
+const HIGHLIGHTS = ["Automatic Specialists", "Male & Female ADI Instructors", "Bilingual Instructors Available"];
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="font-head font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mt-6">
-                <span className="text-[#E4141B] text-[1.5em] leading-none align-[-0.08em] mr-0.5">L</span>earn to Drive with <span className="text-[#E4141B]">Confidence</span>
+                <span className="text-[#E4141B] text-[1.5em] leading-none align-[-0.08em] mr-0.5">L</span>earn to Drive with <span className="text-[#E4141B]">Xclusive Driving School</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
@@ -72,7 +72,7 @@ export default function Home() {
                 <div className="absolute top-5 right-5 flex flex-col items-end gap-2">
                   {[
                     { icon: GearSix, label: "Automatic" },
-                    { icon: UserCircle, label: "Female instructors" },
+                    { icon: UserCircle, label: "Male & female ADI" },
                     { icon: Translate, label: "Bilingual" },
                   ].map((c) => (
                     <span key={c.label} className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-head font-semibold text-xs px-3 py-2">
