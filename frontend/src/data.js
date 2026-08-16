@@ -32,6 +32,7 @@ export const LESSON_OPTIONS = [
   "Advanced Training — £40",
   "Test Ready Lesson — £40",
   "Taxi Lesson — £40",
+  "PDI Training Lesson — £42",
 ];
 
 export const SERVICES = [
@@ -106,6 +107,16 @@ export const SERVICES = [
     cta: "Book a Taxi Lesson",
     lessonType: "Taxi Lesson — £40",
     icon: "Taxi",
+  },
+  {
+    id: "pdi",
+    title: "PDI Training Lesson",
+    price: "£42",
+    priceNote: "per hour",
+    blurb: "Looking to become a driving instructor? Our PDI training is designed to help you build the knowledge, confidence and teaching skills you need to progress towards your instructor career. With practical, supportive training tailored to your level, we'll help you develop into a confident and professional driving instructor.",
+    cta: "Enquire About PDI Training",
+    lessonType: "PDI Training Lesson — £42",
+    icon: "GraduationCap",
   },
 ];
 
