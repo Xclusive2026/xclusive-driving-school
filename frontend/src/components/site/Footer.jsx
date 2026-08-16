@@ -1,3 +1,9 @@
+/*
+ * Footer.jsx — Site footer. Shows the logo, bold company name, blurb, social
+ * icons, page links, and all contact details (both phones, WhatsApp, both emails,
+ * service areas).
+ */
+
 import { Link } from "react-router-dom";
 import { Phone, EnvelopeSimple, WhatsappLogo, FacebookLogo, InstagramLogo, TiktokLogo, GoogleLogo, MapPin } from "@phosphor-icons/react";
 import { BRAND, waLink } from "../../data";

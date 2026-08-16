@@ -1,3 +1,9 @@
+/*
+ * Home.jsx — Homepage. Sections top-to-bottom: hero (headline + car photo panel),
+ * 5.0 star trust band, "Why choose us" cards, lesson previews, motto quote,
+ * reviews preview, areas preview, and a contact call-to-action.
+ */
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";

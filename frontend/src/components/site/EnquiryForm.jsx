@@ -1,3 +1,9 @@
+/*
+ * EnquiryForm.jsx — The contact/enquiry form. Collects name, phone, email,
+ * lesson type, preferred instructor, contact method and message, then POSTs to
+ * the backend (/api/enquiries). Shows a friendly confirmation on success.
+ */
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "sonner";

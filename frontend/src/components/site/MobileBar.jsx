@@ -1,3 +1,8 @@
+/*
+ * MobileBar.jsx — Sticky bottom bar shown only on mobile, giving quick
+ * "WhatsApp" and "Book a Lesson" actions on every page.
+ */
+
 import { Link } from "react-router-dom";
 import { WhatsappLogo, CalendarCheck } from "@phosphor-icons/react";
 import { waLink } from "../../data";

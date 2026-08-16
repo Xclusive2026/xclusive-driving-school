@@ -1,3 +1,8 @@
+/*
+ * Areas.jsx — "Areas We Cover" page. Explains coverage of Sheffield & Rotherham
+ * with key selling points and a "check your area" WhatsApp/Book call-to-action.
+ */
+
 import { MapPin, CheckCircle, WhatsappLogo, NavigationArrow } from "@phosphor-icons/react";
 import { waLink } from "../data";
 import { Reveal } from "../components/site/Reveal";

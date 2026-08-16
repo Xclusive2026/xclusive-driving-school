@@ -1,3 +1,10 @@
+/*
+ * Buttons.jsx — Reusable button components used across the site:
+ *   BookButton     — red pill link to the Contact page ("Book a Lesson").
+ *   WhatsAppButton — green pill link that opens a pre-filled WhatsApp chat.
+ *   OutlineButton  — outlined pill (link or onClick) for secondary actions.
+ */
+
 import { Link } from "react-router-dom";
 import { WhatsappLogo, ArrowRight } from "@phosphor-icons/react";
 import { waLink } from "../../data";

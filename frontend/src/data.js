@@ -1,3 +1,15 @@
+/*
+ * data.js — Central content/config for the whole site (single source of truth).
+ * Exports:
+ *   BRAND          — business details (name, logo, phones, emails, socials, areas).
+ *   waLink()       — builds a pre-filled WhatsApp chat link to the WhatsApp number.
+ *   HERO_IMAGE     — homepage hero photo URL.
+ *   LESSON_OPTIONS — options shown in the Contact form's "Lesson type" dropdown.
+ *   SERVICES       — all lessons (title, price, blurb, CTA, icon) used on the
+ *                    Driving Lessons page and homepage previews.
+ *   WHY            — "Why choose us" cards shown on the homepage.
+ */
+
 const WA_NUMBER = "447838709089";
 
 export const BRAND = {

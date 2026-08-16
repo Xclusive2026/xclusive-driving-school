@@ -1,3 +1,8 @@
+/*
+ * Socials.jsx — Social media links config and a compact icon row (WhatsApp,
+ * Instagram, TikTok, Google, Facebook) used in the navbar header.
+ */
+
 import { InstagramLogo, TiktokLogo, GoogleLogo, FacebookLogo, WhatsappLogo } from "@phosphor-icons/react";
 import { BRAND, waLink } from "../../data";
 

@@ -1,3 +1,8 @@
+/*
+ * index.js — React entry point. Mounts the <App/> component into the DOM
+ * and imports the global stylesheet (index.css).
+ */
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

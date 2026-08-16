@@ -1,3 +1,9 @@
+/*
+ * Navbar.jsx — Fixed top navigation. Shows logo + bold company name, page links,
+ * social icons (desktop), a phone link and "Book a Lesson" button. Collapses into
+ * a hamburger menu on mobile. Adds a subtle shadow/blur once the page is scrolled.
+ */
+
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";

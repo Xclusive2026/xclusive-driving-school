@@ -1,3 +1,9 @@
+/*
+ * DrivingLessons.jsx — Lists every lesson from SERVICES (data.js) as a card with
+ * icon, description, price panel, and Book/WhatsApp buttons. Each "Book" link
+ * pre-fills the Contact form's lesson type via a ?lesson= query param.
+ */
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight, WhatsappLogo, SteeringWheel, GearSix, ArrowsClockwise, Lightning, Medal, Package, SealCheck, Taxi, GraduationCap, CheckCircle,

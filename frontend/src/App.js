@@ -1,3 +1,10 @@
+/*
+ * App.js — Root React component for the Xclusive Driving School site.
+ * Sets up client-side routing (react-router) for the 5 pages, a global toast
+ * container (sonner), the fixed navbar, footer, and the sticky mobile
+ * WhatsApp/Book bar. ScrollToTop resets scroll position on every route change.
+ */
+
 import { useEffect } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";

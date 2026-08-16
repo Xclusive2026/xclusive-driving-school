@@ -1,3 +1,16 @@
+# ============================================================================
+# Xclusive Driving School — FastAPI backend (main server)
+# ----------------------------------------------------------------------------
+# Responsibilities:
+#   * Store website enquiries in MongoDB and email both owners on each enquiry
+#     (via Emergent-managed Resend).
+#   * Store/return learner reviews.
+#   * Optional live Google reviews proxy (Places API) with 1-hour caching.
+# Notes:
+#   * Every API route is prefixed with "/api" (required by the Kubernetes ingress).
+#   * Uses MONGO_URL / DB_NAME from environment only (never hardcoded).
+# ============================================================================
+
 from fastapi import FastAPI, APIRouter
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
@@ -186,11 +199,13 @@ class Review(BaseModel):
 
 
 # ---- Routes ----
+# Health/info root for the API.
 @api_router.get("/")
 async def root():
     return {"message": "Xclusive Driving School API"}
 
 
+# --- Demo status-check endpoints (kept from the starter template) ---
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
     status_obj = StatusCheck(**input.model_dump())
@@ -209,6 +224,7 @@ async def get_status_checks():
     return status_checks
 
 
+# Save a website enquiry, then email both owners about it (email failure is ignored).
 @api_router.post("/enquiries", response_model=Enquiry)
 async def create_enquiry(input: EnquiryCreate):
     enquiry = Enquiry(**input.model_dump())
@@ -251,12 +267,14 @@ async def create_enquiry(input: EnquiryCreate):
     return enquiry
 
 
+# Return all stored enquiries, newest first.
 @api_router.get("/enquiries", response_model=List[Enquiry])
 async def list_enquiries():
     docs = await db.enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
     return [Enquiry(**d) for d in docs]
 
 
+# Save a learner review (rating clamped to 1–5).
 @api_router.post("/reviews", response_model=Review)
 async def create_review(input: ReviewCreate):
     rating = max(1, min(5, int(input.rating)))
@@ -266,6 +284,7 @@ async def create_review(input: ReviewCreate):
     return review
 
 
+# Return all stored reviews, newest first.
 @api_router.get("/reviews", response_model=List[Review])
 async def list_reviews():
     docs = await db.reviews.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
@@ -277,6 +296,8 @@ _reviews_cache = {"ts": 0, "data": None}
 _REVIEWS_TTL = 3600  # 1 hour
 
 
+# Proxy live Google reviews via Places API (cached 1h). Returns configured:false
+# when no API key/Place ID is set so the frontend falls back to built-in reviews.
 @api_router.get("/google-reviews")
 async def google_reviews():
     api_key = os.environ.get("GOOGLE_MAPS_API_KEY")

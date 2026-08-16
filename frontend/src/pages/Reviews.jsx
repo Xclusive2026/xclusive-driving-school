@@ -1,3 +1,10 @@
+/*
+ * Reviews.jsx — Reviews page. Shows a 5.0 Google rating badge, testimonial cards
+ * (live Google reviews if the backend is configured, else the built-in ones),
+ * a "Pass Wall" masonry gallery of real learner photos with a lightbox, and
+ * links to Google/Facebook/Instagram/TikTok.
+ */
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";

@@ -1,3 +1,8 @@
+/*
+ * Contact.jsx — Contact page. Shows phone/WhatsApp/email cards and the enquiry
+ * form. Reads an optional ?lesson= query param to pre-select the lesson type.
+ */
+
 import { useSearchParams } from "react-router-dom";
 import { Phone, EnvelopeSimple, WhatsappLogo, MapPin } from "@phosphor-icons/react";
 import { BRAND, waLink } from "../data";

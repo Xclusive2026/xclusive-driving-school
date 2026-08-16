@@ -1,3 +1,8 @@
+/*
+ * Reveal.jsx — Small wrapper that fades/slides its children in on scroll using
+ * framer-motion. Used throughout the site for subtle entrance animations.
+ */
+
 import { motion } from "framer-motion";
 
 export const Reveal = ({ children, delay = 0, y = 28, className = "" }) => (
