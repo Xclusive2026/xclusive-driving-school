@@ -57,7 +57,7 @@ export const SERVICES = [
     title: "Intensive Driving Course",
     price: "£600",
     priceNote: "course",
-    blurb: "Want to get your lessons done in a shorter period? Our intensive course gives you a more focused way to work towards your driving goals.",
+    blurb: "Want to get your lessons done in a shorter period? Our intensive driving course offers a focused and efficient way to help you achieve your driving goals. With a customised course lasting 1–2 weeks, you'll benefit from multiple lessons each day, allowing you to build confidence and skills quickly. We also provide fast-tracked practical test booking, comprehensive test preparation, and realistic mock test sessions to ensure you're fully prepared for test day.",
     cta: "Enquire About Intensive Courses",
     lessonType: "Intensive Course — £600",
     icon: "Lightning",
