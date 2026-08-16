@@ -28,6 +28,7 @@ export const LESSON_OPTIONS = [
   "Intensive Course — £600",
   "Block Lesson — £380 (10 hours)",
   "Advanced Training — £40",
+  "Test Ready Lesson — £40",
 ];
 
 export const SERVICES = [
@@ -82,6 +83,16 @@ export const SERVICES = [
     cta: "Enquire About Advanced Training",
     lessonType: "Advanced Training — £40",
     icon: "Medal",
+  },
+  {
+    id: "testready",
+    title: "Test Ready Lesson",
+    price: "£40",
+    priceNote: "per hour",
+    blurb: "Got your test coming up? This lesson is all about helping you feel confident behind the wheel. We'll fine-tune your driving, work on any last-minute improvements, and make sure you're fully prepared to give yourself the best chance of passing first time.",
+    cta: "Book a Test Ready Lesson",
+    lessonType: "Test Ready Lesson — £40",
+    icon: "SealCheck",
   },
 ];
 
