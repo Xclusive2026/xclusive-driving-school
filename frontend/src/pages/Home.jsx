@@ -5,7 +5,7 @@ import {
   GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart,
   CheckCircle, Star, ArrowRight, CarProfile, ArrowsClockwise, Lightning, Medal, GoogleLogo, Quotes,
 } from "@phosphor-icons/react";
-import { BRAND, WHY, SERVICES } from "../data";
+import { BRAND, WHY, SERVICES, HERO_IMAGE } from "../data";
 import { Reveal } from "../components/site/Reveal";
 import { BookButton, WhatsAppButton, OutlineButton } from "../components/site/Buttons";
 
@@ -53,32 +53,32 @@ export default function Home() {
           </div>
 
           {/* Decorative brand panel (no photos) */}
+          {/* Hero image panel */}
           <Reveal delay={0.15}>
             <div className="relative">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="relative rounded-[32px] bg-[#17171A] soft-shadow-lg overflow-hidden p-10"
+                className="relative rounded-[32px] soft-shadow-lg overflow-hidden aspect-[4/5] sm:aspect-square"
               >
-                <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)", backgroundSize: "22px 22px" }} />
-                <div className="relative">
-                  <div className="bg-white rounded-2xl p-4 inline-block soft-shadow">
-                    <img src={BRAND.logo} alt="Xclusive Driving School" className="h-16 w-auto object-contain" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 mt-8">
-                    {[
-                      { icon: GearSix, label: "Automatic" },
-                      { icon: ArrowsClockwise, label: "Refresher" },
-                      { icon: UserCircle, label: "Female instructors" },
-                      { icon: Translate, label: "Bilingual" },
-                    ].map((c) => (
-                      <div key={c.label} className="flex items-center gap-3 rounded-2xl bg-white/8 border border-white/10 px-4 py-4">
-                        <c.icon size={26} weight="duotone" className="text-[#E4141B]" />
-                        <span className="font-head font-semibold text-white text-sm">{c.label}</span>
-                      </div>
-                    ))}
-                  </div>
+                <img src={HERO_IMAGE} alt="Inside one of our automatic Toyota driving school cars" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+
+                <div className="absolute top-5 left-5 bg-white rounded-2xl px-3 py-2 soft-shadow">
+                  <img src={BRAND.logo} alt="Xclusive Driving School" className="h-9 w-auto object-contain" />
+                </div>
+
+                <div className="absolute top-5 right-5 flex flex-col items-end gap-2">
+                  {[
+                    { icon: GearSix, label: "Automatic" },
+                    { icon: UserCircle, label: "Female instructors" },
+                    { icon: Translate, label: "Bilingual" },
+                  ].map((c) => (
+                    <span key={c.label} className="inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-head font-semibold text-xs px-3 py-2">
+                      <c.icon size={16} weight="fill" className="text-white" /> {c.label}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
 

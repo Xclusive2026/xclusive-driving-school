@@ -22,6 +22,8 @@ export const BRAND = {
 export const waLink = (text = "Hi Xclusive Driving School, I'd like to book a driving lesson.") =>
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
+export const HERO_IMAGE = "https://customer-assets-lqy194kg.emergentagent.net/job_drive-school-6/artifacts/xl6mk52k_IMG_20260816_184101.webp";
+
 export const LESSON_OPTIONS = [
   "Automatic — £40",
   "Refresher — £40",
