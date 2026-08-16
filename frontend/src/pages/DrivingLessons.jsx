@@ -49,7 +49,7 @@ export default function DrivingLessons() {
                       )}
                     </div>
                     <h2 className="font-head font-extrabold text-2xl md:text-3xl mt-5">{s.title}</h2>
-                    <p className="font-body text-lg text-[#4B4B52] leading-relaxed mt-3">{s.blurb}</p>
+                    <p className="font-body text-lg text-[#4B4B52] leading-relaxed mt-3" dangerouslySetInnerHTML={{ __html: s.blurb }} />
                     <div className="flex flex-wrap gap-3 mt-6">
                       <Link
                         to={`/contact?lesson=${encodeURIComponent(s.lessonType)}`}

@@ -125,7 +125,7 @@ export const SERVICES = [
     title: "PDI Training Lesson",
     price: "£42",
     priceNote: "per hour",
-    blurb: "Have you got your PDI Part 3 coming up? Looking to become a driving instructor? Our PDI training is designed to help you build the knowledge, confidence and teaching skills you need to progress towards your instructor career. With practical, supportive training tailored to your level, we'll help you develop into a confident and professional driving instructor.",
+    blurb: "Have you got your <strong>PDI Part 3 coming up</strong>? or Looking to become a driving instructor? Our PDI training is designed to help you build the knowledge, confidence and teaching skills you need to progress towards your instructor career. With practical, supportive training tailored to your level, we'll help you develop into a confident and professional driving instructor.",
     cta: "Enquire About PDI Training",
     lessonType: "PDI Training Lesson — £42",
     icon: "GraduationCap",
