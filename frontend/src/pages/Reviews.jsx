@@ -19,19 +19,14 @@ const PASS_IMAGES = Array.from({ length: 24 }, (_, i) => `/reviews/pass-${i + 1}
 
 const TESTIMONIALS = [
   {
-    text: "Ishie is an amazing driving instructor who helped me pass first time with 0 minors! She is very kind, patient, and knowledgeable and knows exactly what the examiners are looking for, and explains things in detail as well as their reasoning. I would recommend her and Xclusive Driving School to everyone!",
-    tag: "Passed first time · 0 minors",
-    instructor: "Ishie",
+    text: "I had the best experience anyone could have asked for. My instructor is very patient, great at communication and I felt listened to. Any of my worries little or big was tackled and improved instantly. He didn't only train me to be a good safe driver, he also helped me with my anxiety. Took his own time to talk and change my way of thinking especially before my test. I'm so grateful and thankful. Thank you Khurram. You are a genuine person.",
+    tag: "Overcame driving anxiety",
+    name: "Alziina Peerbaccus",
   },
   {
-    text: "Really enjoyed my lessons and couldn't have asked for a better instructor. Khurram was always patient and easy to get along with, and helped me feel so much more confident driving. Passed first time, so couldn't be happier. Would definitely recommend.",
+    text: "I couldn't have asked for a better driving instructor! Khurram was always so patient and made me feel comfortable from the very first lesson. He explained everything really clearly and helped me build up my confidence. Thanks to his support and teaching, I passed first time. I'd definitely recommend him to anyone looking to learn to drive.",
     tag: "Passed first time",
-    instructor: "Khurram",
-  },
-  {
-    text: "I had an excellent experience learning with this driving school. The instructor was patient, professional, and explained everything clearly, which helped me build my confidence behind the wheel.",
-    tag: "Confident new driver",
-    instructor: "Xclusive",
+    name: "Raegan Pawlyn",
   },
 ];
 
@@ -56,7 +51,7 @@ export default function Reviews() {
       }))
     : TESTIMONIALS.map((t) => ({
         text: t.text,
-        name: "Verified learner",
+        name: t.name,
         tag: `${t.tag} · Posted on Google`,
         rating: 5,
         uri: BRAND.google,
