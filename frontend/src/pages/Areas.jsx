@@ -5,7 +5,7 @@ import { BookButton } from "../components/site/Buttons";
 
 const POINTS = [
   "Learn around your home, work, college or university",
-  "Automatic & manual lessons available in both areas",
+  "Automatic driving lessons available across both areas",
   "Female and bilingual instructors available on request",
 ];
 

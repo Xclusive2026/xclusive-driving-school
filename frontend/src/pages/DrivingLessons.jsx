@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, WhatsappLogo, SteeringWheel, GearSix, ArrowsClockwise, Lightning, Medal, CheckCircle,
+  ArrowRight, WhatsappLogo, SteeringWheel, GearSix, ArrowsClockwise, Lightning, Medal, Package, CheckCircle,
 } from "@phosphor-icons/react";
 import { SERVICES, waLink } from "../data";
 import { Reveal } from "../components/site/Reveal";
 
-const ICONS = { SteeringWheel, GearSix, ArrowsClockwise, Lightning, Medal };
+const ICONS = { SteeringWheel, GearSix, ArrowsClockwise, Lightning, Medal, Package };
 
 export default function DrivingLessons() {
   return (

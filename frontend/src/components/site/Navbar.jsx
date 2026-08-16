@@ -33,8 +33,8 @@ export const Navbar = () => {
     >
       <nav className="max-w-[1240px] mx-auto px-4 md:px-8 h-[74px] flex items-center justify-between gap-4">
         <Link to="/" data-testid="nav-logo" onClick={() => setOpen(false)} className="flex items-center gap-2.5 shrink-0">
-          <img src={BRAND.logo} alt="Xclusive Driving School" className="h-9 md:h-10 w-auto object-contain" />
-          <span className="hidden sm:block font-head font-extrabold text-[#17171A] leading-none text-sm lg:text-base whitespace-nowrap">
+          <img src={BRAND.logo} alt="Xclusive Driving School" className="h-12 md:h-14 w-auto object-contain" />
+          <span className="hidden sm:block font-head font-extrabold text-[#17171A] leading-none text-base lg:text-xl whitespace-nowrap">
             Xclusive <span className="text-[#E4141B]">Driving School</span>
           </span>
         </Link>

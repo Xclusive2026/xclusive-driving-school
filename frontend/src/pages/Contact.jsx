@@ -56,6 +56,13 @@ export default function Contact() {
                     <span className="block font-head font-bold text-lg break-all">{BRAND.email}</span>
                   </span>
                 </a>
+                <a href={BRAND.email2Href} data-testid="contact-email-2" className="flex items-center gap-4 bg-white border border-[#ECE6E2] rounded-2xl p-5 soft-shadow hover:border-[#E4141B]/40 transition">
+                  <span className="w-12 h-12 rounded-xl bg-[#E4141B]/10 grid place-items-center"><EnvelopeSimple size={22} weight="fill" className="text-[#E4141B]" /></span>
+                  <span>
+                    <span className="block font-head font-semibold text-sm text-[#4B4B52]">Or email</span>
+                    <span className="block font-head font-bold text-lg break-all">{BRAND.email2}</span>
+                  </span>
+                </a>
                 <div className="flex items-center gap-4 bg-white border border-[#ECE6E2] rounded-2xl p-5 soft-shadow">
                   <span className="w-12 h-12 rounded-xl bg-[#E4141B]/10 grid place-items-center"><MapPin size={22} weight="fill" className="text-[#E4141B]" /></span>
                   <span>

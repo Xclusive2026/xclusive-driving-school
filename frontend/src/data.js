@@ -10,6 +10,8 @@ export const BRAND = {
   phone2Href: "tel:+447838709089",
   email: "ishie677@gmail.com",
   emailHref: "mailto:ishie677@gmail.com",
+  email2: "kshaz798@gmail.com",
+  email2Href: "mailto:kshaz798@gmail.com",
   areas: "Sheffield & Rotherham",
   facebookReviews: "https://www.facebook.com/profile.php?id=100091924760890&sk=reviews",
   instagram: "https://www.instagram.com/xculsivedriving",
@@ -21,31 +23,21 @@ export const waLink = (text = "Hi Xclusive Driving School, I'd like to book a dr
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
 export const LESSON_OPTIONS = [
-  "Manual — £37.50",
   "Automatic — £40",
-  "Refresher — £37.50 Manual / £40 Automatic",
-  "Intensive Course — £380 (10hr block)",
+  "Refresher — £40",
+  "Intensive Course — £600",
+  "Block Lesson — £380 (10 hours)",
   "Advanced Training — £40",
 ];
 
 export const SERVICES = [
-  {
-    id: "manual",
-    title: "Manual Driving Lessons",
-    price: "£37.50",
-    priceNote: "per hour",
-    blurb: "Learn how to confidently handle a manual car, from your first clutch control lesson to getting ready for your test.",
-    cta: "Book a Manual Lesson",
-    lessonType: "Manual — £37.50",
-    icon: "SteeringWheel",
-  },
   {
     id: "automatic",
     title: "Automatic Driving Lessons",
     price: "£40",
     priceNote: "per hour",
     tag: "Our speciality",
-    blurb: "If you don't want to worry about gears and clutch control, automatic lessons let you focus on the road and build your confidence.",
+    blurb: "Automatic is what we specialise in. With no clutch or gear changes to worry about, you can focus on the road and build your confidence.",
     cta: "Book an Automatic Lesson",
     lessonType: "Automatic — £40",
     icon: "GearSix",
@@ -53,22 +45,33 @@ export const SERVICES = [
   {
     id: "refresher",
     title: "Refresher Lessons",
-    price: "£37.50 / £40",
-    priceNote: "manual / automatic",
+    price: "£40",
+    priceNote: "per hour",
     blurb: "Haven't driven for a while? Whether you've recently passed your test or haven't driven in years, we'll help you get comfortable behind the wheel again.",
     cta: "Book a Refresher Lesson",
-    lessonType: "Refresher — £37.50 Manual / £40 Automatic",
+    lessonType: "Refresher — £40",
     icon: "ArrowsClockwise",
   },
   {
     id: "intensive",
     title: "Intensive Driving Course",
-    price: "£380",
-    priceNote: "10hr block",
+    price: "£600",
+    priceNote: "course",
     blurb: "Want to get your lessons done in a shorter period? Our intensive course gives you a more focused way to work towards your driving goals.",
     cta: "Enquire About Intensive Courses",
-    lessonType: "Intensive Course — £380 (10hr block)",
+    lessonType: "Intensive Course — £600",
     icon: "Lightning",
+  },
+  {
+    id: "block",
+    title: "Block Lesson",
+    price: "£380",
+    priceNote: "for 10 hours",
+    tag: "Best value",
+    blurb: "Book a block of 10 hours in one go and save. A great way to keep your lessons regular and make steady progress towards your test.",
+    cta: "Enquire About Block Lessons",
+    lessonType: "Block Lesson — £380 (10 hours)",
+    icon: "Package",
   },
   {
     id: "advanced",
@@ -85,13 +88,8 @@ export const SERVICES = [
 export const WHY = [
   {
     title: "Automatic Specialists",
-    body: "Prefer an automatic? That's what we specialise in. No clutch or gear changes to worry about — just concentrate on the road and enjoy learning.",
+    body: "Automatic is our speciality. No clutch or gear changes to worry about — just concentrate on the road and enjoy learning at a pace that suits you.",
     icon: "GearSix",
-  },
-  {
-    title: "Manual Lessons",
-    body: "Want to learn in a manual? We'll help you get comfortable with clutch control, gears, manoeuvres and everything else you need to become a confident driver.",
-    icon: "SteeringWheel",
   },
   {
     title: "Sheffield & Rotherham",

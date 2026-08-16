@@ -10,7 +10,7 @@ import { Reveal } from "../components/site/Reveal";
 import { BookButton, WhatsAppButton, OutlineButton } from "../components/site/Buttons";
 
 const ICONS = { GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart, ArrowsClockwise, Lightning, Medal, CarProfile };
-const HIGHLIGHTS = ["Automatic & Manual", "Female Instructors Available", "Bilingual Instructors Available"];
+const HIGHLIGHTS = ["Automatic Specialists", "Female Instructors Available", "Bilingual Instructors Available"];
 
 export default function Home() {
   return (
@@ -69,7 +69,7 @@ export default function Home() {
                   <div className="grid grid-cols-2 gap-3 mt-8">
                     {[
                       { icon: GearSix, label: "Automatic" },
-                      { icon: SteeringWheel, label: "Manual" },
+                      { icon: ArrowsClockwise, label: "Refresher" },
                       { icon: UserCircle, label: "Female instructors" },
                       { icon: Translate, label: "Bilingual" },
                     ].map((c) => (
@@ -247,7 +247,7 @@ export default function Home() {
               <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <Quotes size={56} weight="fill" className="text-[#E4141B] mx-auto relative" />
               <p className="relative font-head font-extrabold text-white text-3xl sm:text-4xl md:text-5xl leading-[1.15] mt-6 max-w-4xl mx-auto">
-                It's not about the problem.<br className="hidden sm:block" /> It's about <span className="text-[#E4141B]">how we fix it.</span>
+                It's not how it goes wrong,<br className="hidden sm:block" /> it's <span className="text-[#E4141B]">how we fix it.</span>
               </p>
               <p className="relative font-body text-white/60 mt-6 max-w-lg mx-auto">
                 Every learner hits a tricky moment — that's normal. What matters is how we work through it together, calmly and at your pace.
