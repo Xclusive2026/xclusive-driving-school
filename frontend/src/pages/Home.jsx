@@ -10,7 +10,7 @@ import { Reveal } from "../components/site/Reveal";
 import { BookButton, WhatsAppButton, OutlineButton } from "../components/site/Buttons";
 
 const ICONS = { GearSix, SteeringWheel, MapPin, UserCircle, Translate, Heart, ArrowsClockwise, Lightning, Medal, CarProfile };
-const HIGHLIGHTS = ["Automatic Specialists", "Male & Female ADI Instructors", "Bilingual Instructors Available"];
+const HIGHLIGHTS = ["Nerves & Anxiety Specialist", "Automatic Specialists", "Male & Female ADI Instructors", "Bilingual Instructors Available"];
 
 export default function Home() {
   return (

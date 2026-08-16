@@ -111,6 +111,11 @@ export const SERVICES = [
 
 export const WHY = [
   {
+    title: "Nerves & Anxiety Specialist",
+    body: "We specialise in helping nervous and anxious learners. With calm, patient and supportive tuition, we'll put you at ease and build your confidence one step at a time.",
+    icon: "Heart",
+  },
+  {
     title: "Automatic Specialists",
     body: "Automatic is our speciality. No clutch or gear changes to worry about — just concentrate on the road and enjoy learning at a pace that suits you.",
     icon: "GearSix",
